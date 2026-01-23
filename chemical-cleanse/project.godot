@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="chemical cleanse"
+config/name="chemical cleanse movement"
 run/main_scene="res://player.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
