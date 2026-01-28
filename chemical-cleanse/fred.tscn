@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyxnni35dh6b"]
+
+[ext_resource type="Texture2D" uid="uid://2moox4unp1jl" path="res://assets/player temp idle.png" id="1_362cg"]
+[ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_uoe1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoe1y"]
+size = Vector2(78, 81)
+
+[node name="body" type="CharacterBody2D"]
+position = Vector2(69, 46)
+motion_mode = 1
+script = ExtResource("1_uoe1y")
+
+[node name="fred" type="Sprite2D" parent="."]
+position = Vector2(23, 24.499998)
+scale = Vector2(2.4375, 2.5312498)
+texture = ExtResource("1_362cg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23, 24.5)
+shape = SubResource("RectangleShape2D_uoe1y")
