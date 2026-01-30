@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoe1y"]
 size = Vector2(78, 81)
 
-[node name="body" type="CharacterBody2D"]
+[node name="fred" type="CharacterBody2D"]
 position = Vector2(69, 46)
 motion_mode = 1
 script = ExtResource("1_uoe1y")
@@ -19,3 +19,9 @@ texture = ExtResource("1_362cg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(23, 24.5)
 shape = SubResource("RectangleShape2D_uoe1y")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
