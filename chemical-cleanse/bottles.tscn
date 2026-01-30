@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx5ifuyrrglnt"]
+
+[ext_resource type="Texture2D" uid="uid://j1r8ddxqb680" path="res://icon.svg" id="1_wui85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xiyir"]
+size = Vector2(128, 128)
+
+[node name="Bottle" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 413)
+texture = ExtResource("1_wui85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(570, 413)
+shape = SubResource("RectangleShape2D_xiyir")

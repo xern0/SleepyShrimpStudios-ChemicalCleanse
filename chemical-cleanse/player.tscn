@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdynt4vn22uu4"]
+[gd_scene load_steps=5 format=3 uid="uid://cdynt4vn22uu4"]
 
-[ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_onrkg"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://j1r8ddxqb680" path="res://icon.svg" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://bqe0iglop35ik" path="res://Interact_ font.tscn" id="3_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(126.5, 118)
@@ -16,3 +17,5 @@ texture = ExtResource("2_i3pqv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_i3pqv")]

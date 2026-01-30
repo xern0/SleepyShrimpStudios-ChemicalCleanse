@@ -1,11 +1,12 @@
-extends Sprite2D
+extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
+@onready var interactable: Area2D = $Interactable
+@onready var sprite_2d: Sprite2D = $Sprite2D
+ 
 func _ready() -> void:
-	pass # Replace with function body.
+	interactable.Interact = _on_interact
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_interact():
+	if sprite_2d.frame == 0:
+		sprite_2d.frame = 1
+		interactable.is_interactable = false 
