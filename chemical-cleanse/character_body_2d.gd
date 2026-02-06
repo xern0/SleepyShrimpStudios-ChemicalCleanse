@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var fred: Sprite2D = $fred
+@onready var roll: Sprite2D = $roll
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 const PLAYER_TEMP_DOWN = preload("uid://cdjwdydjod4i7")
@@ -14,6 +15,7 @@ var normal_speed := 600
 var roll_speed := 1200
 var run_speed := 900
 var max_speed := normal_speed
+
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down",)
@@ -37,11 +39,17 @@ func _physics_process(_delta):
 		max_speed = run_speed
 	if Input.is_action_just_released("run"):
 		max_speed = normal_speed
-		
+
+
 	if Input.is_action_just_pressed("roll"):
 		max_speed = roll_speed
 		get_node("timer").start()
-		fred.set_texture(PLAYER_TEMP_ROLL)
+		$fred.visible = false
+		$roll.visible = true
+
+
 
 func _on_timer_timeout() -> void:
 	max_speed = normal_speed
+	$fred.visible = true
+	$roll.visible = false
