@@ -9,10 +9,9 @@ func _ready() -> void:
 func _on_interact():
 	if sprite_2d.frame == 0:
 		sprite_2d.frame = 1
-		interactable.is_interactable = false 
+		interactable.is_Interactable = false 
 		print("Gained a bottle")
+		queue_free()
 
 var is_interactable := true
 var interact_name := "E"
-
-func interact(): pass
