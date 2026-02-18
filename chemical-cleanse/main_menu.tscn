@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://jeao4x0vrc04"]
+
+[ext_resource type="Texture2D" uid="uid://mae3mmdl5rbj" path="res://assets/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_06t4h"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/MainMenu"]
+layout_mode = 2
+texture = ExtResource("1_06t4h")
