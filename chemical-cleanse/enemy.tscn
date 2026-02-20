@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy31b3fmvesco"]
+
+[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_qi2p4"]
+[ext_resource type="Script" uid="uid://xo1xulw1c8ud" path="res://enemy.gd" id="2_iifgy"]
+[ext_resource type="Texture2D" uid="uid://dsqkce6hpbwgf" path="res://assets/enemy.png" id="3_epg4t"]
+[ext_resource type="PackedScene" uid="uid://ccjwqu5fdmb4i" path="res://hitbox.tscn" id="4_iifgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(52, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epg4t"]
+size = Vector2(66, 61)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(131, 51)
+
+[node name="fred" parent="." instance=ExtResource("1_qi2p4")]
+position = Vector2(371, 233)
+
+[node name="enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("2_iifgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy"]
+modulate = Color(1, 0.41753548, 0.48571384, 1)
+position = Vector2(17, 14.5)
+scale = Vector2(2.0625, 1.90625)
+texture = ExtResource("3_epg4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_3yqyl")
+
+[node name="hitbox" parent="enemy" instance=ExtResource("4_iifgy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/hitbox"]
+position = Vector2(17, 14.5)
+shape = SubResource("RectangleShape2D_epg4t")
+debug_color = Color(0.94513386, 0.183238, 0.38336375, 0.41960785)
