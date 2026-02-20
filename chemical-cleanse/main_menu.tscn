@@ -24,3 +24,4 @@ layout_mode = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="Menu/MainMenu"]
 layout_mode = 2
 texture = ExtResource("1_06t4h")
+region_rect = Rect2(0, 0, 896, 240)
