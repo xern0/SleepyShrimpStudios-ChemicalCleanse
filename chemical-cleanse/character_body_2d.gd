@@ -17,6 +17,7 @@ var run_speed := 900
 var max_speed := normal_speed
 
 
+
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down",)
 	velocity = input_direction * max_speed

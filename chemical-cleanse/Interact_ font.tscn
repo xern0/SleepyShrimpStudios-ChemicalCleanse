@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqe0iglop35ik"]
+
+[ext_resource type="Script" uid="uid://c21t53t2q3w8i" path="res://interact__font.gd" id="1_o1jsg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31bkb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o1jsg"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractableComponent" type="Node2D"]
+script = ExtResource("1_o1jsg")
+
+[node name="InteractRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+shape = SubResource("CircleShape2D_31bkb")
+
+[node name="Interactlable" type="Label" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -53.0
+offset_right = 47.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+label_settings = SubResource("LabelSettings_o1jsg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]
