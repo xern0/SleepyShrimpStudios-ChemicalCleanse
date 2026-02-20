@@ -53,3 +53,11 @@ func _on_timer_timeout() -> void:
 	max_speed = normal_speed
 	$fred.visible = true
 	$roll.visible = false
+
+
+func _on_hurtbox_died() -> void:
+	pass # Replace with function body.
+
+
+func _on_hurtbox_hurt() -> void:
+	pass # Replace with function body.

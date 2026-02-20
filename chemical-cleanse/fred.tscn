@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=7 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Texture2D" uid="uid://2moox4unp1jl" path="res://assets/player temp idle.png" id="1_362cg"]
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_uoe1y"]
 [ext_resource type="Texture2D" uid="uid://rognx6bw0y7o" path="res://assets/player temp roll.png" id="3_nrkb6"]
+[ext_resource type="PackedScene" uid="uid://k1pxhnymcnwl" path="res://hurtbox.tscn" id="4_bwymb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoe1y"]
-size = Vector2(78, 81)
+size = Vector2(68, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nlm4"]
+size = Vector2(77.5, 80.5)
 
 [node name="fred" type="CharacterBody2D"]
 position = Vector2(69, 46)
@@ -18,7 +22,7 @@ scale = Vector2(2.4375, 2.5312498)
 texture = ExtResource("1_362cg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(23, 24.5)
+position = Vector2(22, 25)
 shape = SubResource("RectangleShape2D_uoe1y")
 
 [node name="timer" type="Timer" parent="."]
@@ -30,5 +34,11 @@ visible = false
 position = Vector2(23, 24.499998)
 scale = Vector2(2.4375, 2.5312498)
 texture = ExtResource("3_nrkb6")
+
+[node name="hurtbox" parent="." instance=ExtResource("4_bwymb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(23.25, 24.75)
+shape = SubResource("RectangleShape2D_6nlm4")
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
