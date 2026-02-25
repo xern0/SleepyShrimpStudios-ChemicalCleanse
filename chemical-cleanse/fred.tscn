@@ -43,5 +43,6 @@ position = Vector2(23.25, 24.75)
 shape = SubResource("RectangleShape2D_6nlm4")
 
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
+position = Vector2(21, 1)
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
