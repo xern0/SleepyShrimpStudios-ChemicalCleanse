@@ -5,3 +5,4 @@ extends Area2D
 
 var Interact: Callable = func (): 
 	pass
+ 

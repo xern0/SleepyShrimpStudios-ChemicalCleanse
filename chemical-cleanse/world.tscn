@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq85y4obpv0x"]
 
-[ext_resource type="PackedScene" uid="uid://cdynt4vn22uu4" path="res://player.tscn" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://cv15lqh043voh" path="res://bottle.tscn" id="2_tlwt5"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
 
-[node name="player" parent="." instance=ExtResource("1_fj7yv")]
-position = Vector2(553, 301)
-
 [node name="Bottle" parent="." instance=ExtResource("2_tlwt5")]
 position = Vector2(858, 257)
+
+[node name="fred" parent="." instance=ExtResource("1_fj7yv")]
