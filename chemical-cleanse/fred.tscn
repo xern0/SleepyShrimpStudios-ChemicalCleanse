@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=10 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="Texture2D" uid="uid://2moox4unp1jl" path="res://assets/player temp idle.png" id="1_362cg"]
+[ext_resource type="Resource" uid="uid://bnendh0eqhs5x" path="res://assets/Items/playerinv.tres" id="2_dw68t"]
 [ext_resource type="Texture2D" uid="uid://rognx6bw0y7o" path="res://assets/player temp roll.png" id="3_nrkb6"]
 [ext_resource type="PackedScene" uid="uid://k1pxhnymcnwl" path="res://hurtbox.tscn" id="4_bwymb"]
 [ext_resource type="PackedScene" uid="uid://bqe0iglop35ik" path="res://Interact_ font.tscn" id="5_6nlm4"]
+[ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://Inv_UI.tscn" id="7_johly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoe1y"]
 size = Vector2(68, 72)
@@ -16,6 +18,7 @@ size = Vector2(77.5, 80.5)
 position = Vector2(69, 46)
 motion_mode = 1
 script = ExtResource("1_6nlm4")
+inv = ExtResource("2_dw68t")
 
 [node name="fred" type="Sprite2D" parent="."]
 position = Vector2(23, 24.499998)
@@ -44,5 +47,11 @@ shape = SubResource("RectangleShape2D_6nlm4")
 
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
 position = Vector2(21, 1)
+
+[node name="Inv_UI" parent="." instance=ExtResource("7_johly")]
+offset_left = 189.0
+offset_top = 18.0
+offset_right = 1050.0
+offset_bottom = 523.0
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

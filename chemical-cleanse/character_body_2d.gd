@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var roll: Sprite2D = $roll
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+@export var inv: Inv
+
 const PLAYER_TEMP_DOWN = preload("uid://cdjwdydjod4i7")
 const PLAYER_TEMP_LEFT = preload("uid://oap8ffx0kggf")
 const PLAYER_TEMP_RIGHT = preload("uid://c7fwbygop2vja")
