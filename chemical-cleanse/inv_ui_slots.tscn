@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwig44k2ivfa"]
+
+[ext_resource type="Texture2D" uid="uid://c1jy87q1v77dn" path="res://assets/Sprite sheets/Dialouge UI/dialog box.png" id="1_fumkd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_udbp3"]
+blend_mode = 2
+
+[node name="inv_UI_slots" type="Panel"]
+offset_right = 315.0
+offset_bottom = 260.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_udbp3")
+position = Vector2(-65, -95.00001)
+scale = Vector2(9.8125, 9)
+texture = ExtResource("1_fumkd")
+centered = false

@@ -49,9 +49,5 @@ shape = SubResource("RectangleShape2D_6nlm4")
 position = Vector2(21, 1)
 
 [node name="Inv_UI" parent="." instance=ExtResource("7_johly")]
-offset_left = 189.0
-offset_top = 18.0
-offset_right = 1050.0
-offset_bottom = 523.0
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -1,15 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbu4hbmyjoogq"]
+[gd_scene load_steps=3 format=3 uid="uid://dbu4hbmyjoogq"]
 
 [ext_resource type="Script" uid="uid://bntbpj60k1ydk" path="res://assets/Items/Inv_UI.gd" id="1_ifgqb"]
+[ext_resource type="Texture2D" uid="uid://dqf82m1bsrwt3" path="res://assets/emojis-free/emoji style ui/Inventory_Blocks_Spritesheet.png" id="2_k3k8b"]
 
 [node name="Inv_UI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1144.0
+offset_bottom = 656.0
+size_flags_stretch_ratio = 0.0
 script = ExtResource("1_ifgqb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1144.0
+offset_bottom = 658.0
+texture = ExtResource("2_k3k8b")
+region_rect = Rect2(2.4462242, 97.61566, 43.14836, 44.772766)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+columns = 6

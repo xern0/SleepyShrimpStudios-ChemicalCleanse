@@ -5,8 +5,9 @@ var is_open = false
 func _ready():
 	close()
 
-func _process(delta):
-	if Input.is_action_just_pressed("u"):
+func _process(_delta):
+	if Input.is_action_just_pressed("inventory"):
+		print("u")
 		if is_open:
 			close()
 		else:
@@ -18,4 +19,4 @@ func open():
 
 func close():
 	visible = false
-	is_open = true
+	is_open = false
