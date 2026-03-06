@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbu4hbmyjoogq"]
+[gd_scene load_steps=4 format=3 uid="uid://dbu4hbmyjoogq"]
 
 [ext_resource type="Script" uid="uid://bntbpj60k1ydk" path="res://assets/Items/Inv_UI.gd" id="1_ifgqb"]
 [ext_resource type="Texture2D" uid="uid://dqf82m1bsrwt3" path="res://assets/emojis-free/emoji style ui/Inventory_Blocks_Spritesheet.png" id="2_k3k8b"]
+[ext_resource type="PackedScene" uid="uid://cvwig44k2ivfa" path="res://inv_ui_slots.tscn" id="3_f21xu"]
 
 [node name="Inv_UI" type="Control"]
 layout_mode = 3
@@ -13,8 +14,8 @@ script = ExtResource("1_ifgqb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 1144.0
-offset_bottom = 658.0
+offset_right = 1375.0
+offset_bottom = 937.0
 texture = ExtResource("2_k3k8b")
 region_rect = Rect2(2.4462242, 97.61566, 43.14836, 44.772766)
 patch_margin_left = 2
@@ -24,4 +25,77 @@ patch_margin_bottom = 2
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
 layout_mode = 1
-columns = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -602.5
+offset_top = -406.5
+offset_right = 609.5
+offset_bottom = 645.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="inv_UI_slots" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+
+[node name="inv_UI_slots12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_f21xu")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
