@@ -11,6 +11,9 @@ func _on_interact():
 		sprite_2d.frame = 1
 		interactable.is_Interactable = false 
 		print("Gained a bottle")
+		var inv = preload("res://assets/Items/playerinv.tres")
+		var item = preload("res://assets/Items/bottle.tres")  
+		inv.insert(item)
 		queue_free()
 
 var is_interactable := true
