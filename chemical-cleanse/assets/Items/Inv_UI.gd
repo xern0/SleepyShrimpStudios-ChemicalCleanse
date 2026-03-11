@@ -7,6 +7,7 @@ var is_open = false
 func _ready():
 	inv.update.connect(update_slots)
 	close()
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func update_slots():
 	print("updating slots")
@@ -27,3 +28,10 @@ func open():
 func close():
 	visible = false
 	is_open = false
+
+func _on_pause_button_pressed():
+	get_tree().paused = true
+	show()
+func _on_close_button_pressed():
+	hide()
+	get_tree().paused = false

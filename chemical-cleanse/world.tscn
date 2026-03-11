@@ -11,6 +11,9 @@ script = ExtResource("1_tlwt5")
 [node name="Bottle" parent="." instance=ExtResource("2_tlwt5")]
 position = Vector2(858, 257)
 
+[node name="Bottle2" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(666, 473)
+
 [node name="fred" parent="." instance=ExtResource("1_fj7yv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
