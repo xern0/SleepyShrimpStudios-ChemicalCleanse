@@ -13,7 +13,7 @@ script = ExtResource("1_udbp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_fumkd")
-position = Vector2(-65, -95.00001)
+position = Vector2(35, 3)
 scale = Vector2(2.75, 2.522)
 texture = ExtResource("2_udbp3")
 centered = false
@@ -21,10 +21,10 @@ centered = false
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(296, 267)
 layout_mode = 0
-offset_left = 44.0
-offset_top = 11.0
-offset_right = 340.0
-offset_bottom = 278.0
+offset_left = 39.0
+offset_top = 7.0
+offset_right = 335.0
+offset_bottom = 274.0
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2
