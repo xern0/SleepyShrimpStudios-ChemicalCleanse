@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="chemical cleanse movement"
-run/main_scene="res://player.tscn"
+run/main_scene="uid://jeao4x0vrc04"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
 
 [input]
 
