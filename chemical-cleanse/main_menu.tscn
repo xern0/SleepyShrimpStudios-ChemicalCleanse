@@ -32,21 +32,32 @@ horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 3
+size_flags_vertical = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 86
+text = "(click anywhere to start)"
+
+[node name="Start" type="Button" parent="PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 80
 text = "Start"
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 86
-text = "Quit"
-
-[connection signal="pressed" from="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/Start" to="." method="_on_start_pressed"]
