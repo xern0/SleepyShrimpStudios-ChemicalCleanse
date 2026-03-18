@@ -5,6 +5,7 @@ signal update
 
 @export var slots: Array[InvSlot]
 
+
 func insert(item: InvItem):
 	var empty = slots.filter(func(slot): return slot.item == null)
 	if !empty.is_empty():
@@ -31,3 +32,4 @@ func remove(index: int):
 	slots[index].item = null
 	slots[index].amount = 0
 	emit_signal("update")
+	

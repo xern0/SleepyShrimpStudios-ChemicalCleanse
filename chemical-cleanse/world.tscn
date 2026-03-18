@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq85y4obpv0x"]
+[gd_scene load_steps=6 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://cv15lqh043voh" path="res://bottle.tscn" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://cwesb0shpcytr" path="res://pausescreen.tscn" id="4_aqk2v"]
+[ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -26,3 +27,8 @@ anchor_bottom = 0.74500006
 offset_right = 843.888
 offset_bottom = 482.23996
 animation_duration = 2.3
+
+[node name="hand" type="Node2D" parent="."]
+script = ExtResource("5_036b0")
+
+[node name="Item_icon" type="Sprite2D" parent="hand"]

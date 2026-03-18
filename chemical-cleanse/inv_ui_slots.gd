@@ -1,6 +1,7 @@
 extends Panel
 
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
+@onready var hand: Node2D = $"../../../../../hand"
 
 var my_index: int = 0
 var inv: Inv = preload("res://assets/Items/playerinv.tres")
@@ -40,3 +41,10 @@ func _notification(what):
 	if what == NOTIFICATION_DRAG_END:
 		if inv.slots[my_index].item != null:
 			item_visual.visible = true
+			
+
+func remove_item(slot_num):
+	var slot = inv.slots[slot_num.x][slot_num.y]
+	if slot.item !={}:
+		if hand.item =={}:
+			hand.add_item(slot.item ,1)
