@@ -19,16 +19,12 @@ func move(from_index: int, to_index: int):
 		return
 	var from_slot = slots[from_index]
 	var to_slot = slots[to_index]
-	
 	var temp_item = to_slot.item
 	var temp_amount = to_slot.amount
-	
 	to_slot.item = from_slot.item
 	to_slot.amount = from_slot.amount
-	
 	from_slot.item = temp_item
 	from_slot.amount = temp_amount
-	
 	emit_signal("update")
 
 func remove(index: int):
