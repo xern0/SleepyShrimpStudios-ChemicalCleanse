@@ -15,10 +15,6 @@ run/main_scene="res://player.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-InvManager="*res://InvManager.gd"
-
 [input]
 
 left={
