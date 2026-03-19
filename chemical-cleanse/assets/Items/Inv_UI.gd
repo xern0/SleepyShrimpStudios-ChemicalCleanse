@@ -8,6 +8,8 @@ func _ready():
 	inv.update.connect(update_slots)
 	close_inventory()
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	for i in range(slots.size()):
+		slots[i].my_index = i
 
 func update_slots():
 	print("updating slots")
