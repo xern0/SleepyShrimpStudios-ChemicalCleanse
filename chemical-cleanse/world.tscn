@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq85y4obpv0x"]
+[gd_scene load_steps=7 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://cv15lqh043voh" path="res://bottle.tscn" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://cwesb0shpcytr" path="res://pausescreen.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://bvb0yrfn5utel" path="res://tempspraybottle.tscn" id="6_dwbse"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -32,3 +33,6 @@ animation_duration = 2.3
 script = ExtResource("5_036b0")
 
 [node name="Item_icon" type="Sprite2D" parent="hand"]
+
+[node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
+position = Vector2(495, 173)
