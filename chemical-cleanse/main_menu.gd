@@ -1,6 +1,10 @@
 extends Control
 
+@onready var logo = $AnimatedSprite2D
 
+func _ready():
+	logo.play("logo")
+	logo.speed_scale = 1.7
 
 
 

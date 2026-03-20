@@ -1,6 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://jeao4x0vrc04"]
+[gd_scene load_steps=7 format=3 uid="uid://jeao4x0vrc04"]
 
 [ext_resource type="Script" uid="uid://cf585n1ftmio0" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://k58ac74r12px" path="res://assets/main menu/Logo-Sheet.png" id="2_7vrkn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
+atlas = ExtResource("2_7vrkn")
+region = Rect2(0, 0, 224, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jix8l"]
+atlas = ExtResource("2_7vrkn")
+region = Rect2(0, 99, 224, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glbon"]
+atlas = ExtResource("2_7vrkn")
+region = Rect2(0, 198, 224, 99)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlkkf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu7sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jix8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glbon")
+}],
+"loop": true,
+"name": &"main menu",
+"speed": 5.0
+}]
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -27,7 +57,6 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "CHEMICAL CLEANSE"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
@@ -60,5 +89,13 @@ theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/font_size = 80
 text = "Start"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1517, 831.00006)
+scale = Vector2(5.1562505, 6.191919)
+sprite_frames = SubResource("SpriteFrames_nlkkf")
+animation = &"main menu"
+autoplay = "main menu"
+frame_progress = 0.45094833
 
 [connection signal="pressed" from="PanelContainer/Start" to="." method="_on_start_pressed"]
