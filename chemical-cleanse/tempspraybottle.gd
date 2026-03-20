@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var item: InvItem
 @onready var interactable: Area2D = $Interactable
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -12,7 +13,7 @@ func _on_interact():
 		interactable.is_Interactable = false 
 		print("Gained a spray")
 		var inv = preload("res://assets/Items/playerinv.tres")
-		var item = preload("res://assets/Items/bottle.tres")  
+		var item = preload("res://assets/Items/tempspraybottle.tres")  
 		inv.insert(item)
 		queue_free()
 
