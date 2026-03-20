@@ -91,7 +91,7 @@ theme_override_font_sizes/font_size = 80
 text = "Start"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1287, 648)
+position = Vector2(1517, 831.00006)
 scale = Vector2(5.1562505, 6.191919)
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
