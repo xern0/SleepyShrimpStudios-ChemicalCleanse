@@ -16,7 +16,7 @@ func _physics_process (_delta):
 func _on_enemyhurtbox_enemydied() -> void:
 	$enemy.visible = false
 	$cleansedenemy.visible = true
-	#Hitbox.call_deferred("queue_free")
+	Hitbox.set_deferred("disabled", true)
 	speed = 0
 	await get_tree().create_timer(1.5).timeout
 	call_deferred("queue_free")
