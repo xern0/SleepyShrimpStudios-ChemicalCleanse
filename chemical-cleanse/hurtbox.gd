@@ -13,3 +13,4 @@ func get_damage(value: int):
 	
 	if healthpoints <= 0:
 		died.emit()
+		get_tree().reload_current_scene.call_deferred()
