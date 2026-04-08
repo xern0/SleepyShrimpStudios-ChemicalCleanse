@@ -57,9 +57,6 @@ func _physics_process(_delta):
 		$melee_attack_stuff/attack_down.visible = true
 		$melee_attack_stuff/attack_down.play("attack_down")
 		$melee_attack_stuff/workingenemyhitbox/CollisionShape2D.disabled = false
-		InputMap.action_erase_events("attack left")
-		InputMap.action_erase_events("attack right")
-		InputMap.action_erase_events("attack up")
 		await get_tree().create_timer(0.35).timeout
 		$melee_attack_stuff/attack_down.visible = false
 		$melee_attack_stuff/workingenemyhitbox/CollisionShape2D.disabled = true
