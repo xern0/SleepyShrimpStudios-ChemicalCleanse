@@ -3,7 +3,7 @@ extends Control
 @onready var logo = $AnimatedSprite2D
 
 func _ready():
-	logo.play("logo")
+	logo.play("main menu")
 	logo.speed_scale = 1.7
 
 
