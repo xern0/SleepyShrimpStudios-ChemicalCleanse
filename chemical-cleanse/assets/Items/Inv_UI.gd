@@ -5,12 +5,12 @@ var inv: Inv = preload("res://assets/Items/playerinv.tres")
 var is_open = false
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	for slot in inv.slots:
 		slot.item = null
 		slot.amount = 0
 	inv.update.connect(update_slots)
 	close_inventory()
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	for i in range(slots.size()):
 		slots[i].my_index = i
 

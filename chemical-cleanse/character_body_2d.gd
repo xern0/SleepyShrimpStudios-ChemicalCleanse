@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var attack_right: AnimatedSprite2D = $melee_attack_stuff/attack_right
 @onready var attack_left: AnimatedSprite2D = $melee_attack_stuff/attack_left
 
+@export var inv:Inv
 
 
 
