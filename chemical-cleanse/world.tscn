@@ -11,6 +11,9 @@
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
 
+[node name="enemy" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(600, 0)
+
 [node name="Bottle" parent="." instance=ExtResource("2_tlwt5")]
 position = Vector2(858, 257)
 
@@ -37,6 +40,3 @@ script = ExtResource("5_036b0")
 
 [node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
 position = Vector2(495, 173)
-
-[node name="enemy" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(300, 0)

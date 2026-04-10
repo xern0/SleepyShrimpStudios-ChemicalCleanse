@@ -940,3 +940,5 @@ shape = SubResource("RectangleShape2D_dw68t")
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox2" to="enemyhitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox3" to="enemyhitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox4" to="enemyhitbox" method="_on_area_entered"]
+[connection signal="died" from="hurtbox" to="." method="_on_hurtbox_died"]
+[connection signal="hurt" from="hurtbox" to="." method="_on_hurtbox_hurt"]

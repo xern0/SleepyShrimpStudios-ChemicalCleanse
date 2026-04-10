@@ -97,12 +97,15 @@ func _on_timer_timeout() -> void:
 	$roll.visible = false
 
 
-func _on_hurtbox_died() -> void:
-	pass # Replace with function body.
 
 
 func _on_hurtbox_hurt() -> void:
 	pass # Replace with function body.
+	
+	
+func _on_hurtbox_died() -> void:
+	pass # Replace with function body.
+
 
 func collect(item):
 	inv.insert(item)
