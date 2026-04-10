@@ -13,6 +13,7 @@ func _ready():
 	close_inventory()
 	for i in range(slots.size()):
 		slots[i].my_index = i
+		update_slots()
 
 func update_slots():
 	print("updating slots")

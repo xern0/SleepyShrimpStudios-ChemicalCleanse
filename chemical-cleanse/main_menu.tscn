@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://jeao4x0vrc04"]
+[gd_scene load_steps=8 format=3 uid="uid://jeao4x0vrc04"]
 
 [ext_resource type="Script" uid="uid://cf585n1ftmio0" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://k58ac74r12px" path="res://assets/main menu/Logo-Sheet.png" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://d1e6ap3uwju1p" path="res://assets/main menu/GameMainMenu(firstDraft).png" id="3_fu7sn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
 atlas = ExtResource("2_7vrkn")
@@ -67,6 +68,7 @@ size_flags_vertical = 10
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+z_index = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "(click anywhere to start)"
@@ -91,11 +93,18 @@ theme_override_font_sizes/font_size = 80
 text = "Start"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1517, 831.00006)
+z_index = 2
+position = Vector2(1270, 314)
 scale = Vector2(5.1562505, 6.191919)
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
 autoplay = "main menu"
 frame_progress = 0.45094833
+
+[node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1331.625, 821.00006)
+scale = Vector2(1.3816404, 1.5287037)
+texture = ExtResource("3_fu7sn")
 
 [connection signal="pressed" from="PanelContainer/Start" to="." method="_on_start_pressed"]
