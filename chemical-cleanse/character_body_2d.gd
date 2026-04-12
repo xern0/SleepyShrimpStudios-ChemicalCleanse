@@ -7,12 +7,16 @@ extends CharacterBody2D
 @onready var attack_up: AnimatedSprite2D = $melee_attack_stuff/attack_up
 @onready var attack_right: AnimatedSprite2D = $melee_attack_stuff/attack_right
 @onready var attack_left: AnimatedSprite2D = $melee_attack_stuff/attack_left
+@onready var enemy: CharacterBody2D = $"../enemy"
+
+
+
 
 @export var inv:Inv
 
 
 
-const PLAYER_TEMP = preload("uid://rkm5abtixqql")
+
 const PLAYER_TEMP_ROLL = preload("uid://rognx6bw0y7o")
 const PLAYER_TEMP_RUN = preload("uid://bpdhx0w15yeb0")
 
@@ -21,7 +25,7 @@ var roll_speed := 1200
 var run_speed := 900
 var max_speed := normal_speed
 
-
+	
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * max_speed
@@ -56,6 +60,14 @@ func _physics_process(_delta):
 		max_speed = normal_speed
 		
 	if Input.is_action_just_pressed("attack down"):
+		if $melee_attack_stuff/attack_up.is_playing():
+			return
+		if $melee_attack_stuff/attack_left.is_playing():
+			return
+		if $melee_attack_stuff/attack_right.is_playing():
+			return
+		if $melee_attack_stuff/attack_down.is_playing():
+			return
 		$melee_attack_stuff/attack_down.visible = true
 		$melee_attack_stuff/attack_down.play("attack_down")
 		$melee_attack_stuff/workingenemyhitbox/CollisionShape2D.disabled = false
@@ -63,6 +75,14 @@ func _physics_process(_delta):
 		$melee_attack_stuff/attack_down.visible = false
 		$melee_attack_stuff/workingenemyhitbox/CollisionShape2D.disabled = true
 	elif Input.is_action_just_pressed("attack up"):
+		if $melee_attack_stuff/attack_up.is_playing():
+			return
+		if $melee_attack_stuff/attack_left.is_playing():
+			return
+		if $melee_attack_stuff/attack_right.is_playing():
+			return
+		if $melee_attack_stuff/attack_down.is_playing():
+			return
 		$melee_attack_stuff/attack_up.visible = true
 		$melee_attack_stuff/attack_up.play("attack_up")
 		$melee_attack_stuff/workingenemyhitbox2/CollisionShape2Dup.disabled = false
@@ -70,6 +90,14 @@ func _physics_process(_delta):
 		$melee_attack_stuff/attack_up.visible = false
 		$melee_attack_stuff/workingenemyhitbox2/CollisionShape2Dup.disabled = true
 	elif Input.is_action_just_pressed("attack left"):
+		if $melee_attack_stuff/attack_up.is_playing():
+			return
+		if $melee_attack_stuff/attack_left.is_playing():
+			return
+		if $melee_attack_stuff/attack_right.is_playing():
+			return
+		if $melee_attack_stuff/attack_down.is_playing():
+			return
 		$melee_attack_stuff/attack_left.visible = true
 		$melee_attack_stuff/attack_left.play("attack_left")
 		$melee_attack_stuff/workingenemyhitbox4/CollisionShape2Dleft.disabled = false
@@ -77,6 +105,14 @@ func _physics_process(_delta):
 		$melee_attack_stuff/attack_left.visible = false
 		$melee_attack_stuff/workingenemyhitbox4/CollisionShape2Dleft.disabled = true
 	elif Input.is_action_just_pressed("attack right"):
+		if $melee_attack_stuff/attack_up.is_playing():
+			return
+		if $melee_attack_stuff/attack_left.is_playing():
+			return
+		if $melee_attack_stuff/attack_right.is_playing():
+			return
+		if $melee_attack_stuff/attack_down.is_playing():
+			return
 		$melee_attack_stuff/attack_right.visible = true
 		$melee_attack_stuff/attack_right.play("attack_right")
 		$melee_attack_stuff/workingenemyhitbox3/CollisionShape2Dright.disabled = false
@@ -91,7 +127,6 @@ func _physics_process(_delta):
 		$roll.visible = true
 
 
-
 func _on_timer_timeout() -> void:
 	max_speed = normal_speed
 	$roll.visible = false
@@ -100,11 +135,13 @@ func _on_timer_timeout() -> void:
 
 
 func _on_hurtbox_hurt() -> void:
-	pass # Replace with function body.
-	
+	print("ow")
+	var knockback_direction = (enemy.global_position - global_position).normalized()
+	enemy.apply_knockback(knockback_direction, 1750.0, 0.1)
+	print("kb")
 	
 func _on_hurtbox_died() -> void:
-	pass # Replace with function body.
+	print("ded")
 
 
 func collect(item):

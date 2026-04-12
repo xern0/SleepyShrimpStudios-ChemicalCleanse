@@ -99,7 +99,8 @@ scale = Vector2(5.1562505, 6.191919)
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
 autoplay = "main menu"
-frame_progress = 0.45094833
+frame = 1
+frame_progress = 0.16917163
 
 [node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="."]
 z_index = 1

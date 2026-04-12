@@ -869,6 +869,7 @@ disabled = true
 
 [node name="attack_up" type="AnimatedSprite2D" parent="melee_attack_stuff"]
 visible = false
+z_index = -1
 position = Vector2(21, -29.999998)
 rotation = -3.1415925
 scale = Vector2(2.668, 2.797)
