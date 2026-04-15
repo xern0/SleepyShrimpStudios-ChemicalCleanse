@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwesb0shpcytr" path="res://pausescreen.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://bvb0yrfn5utel" path="res://tempspraybottle.tscn" id="6_dwbse"]
-[ext_resource type="PackedScene" uid="uid://dsng30rfn3opq" path="res://enemyfix.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_pkg7o"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -23,11 +23,14 @@ position = Vector2(666, 473)
 process_mode = 3
 
 [node name="Pausescreen" parent="CanvasLayer" instance=ExtResource("4_aqk2v")]
+visible = false
 anchors_preset = -1
 anchor_right = 0.731
 anchor_bottom = 0.74500006
-offset_right = 843.888
-offset_bottom = 482.23996
+offset_left = -234.0
+offset_top = -150.0
+offset_right = 611.888
+offset_bottom = 332.23996
 animation_duration = 2.3
 
 [node name="hand" type="Node2D" parent="."]
@@ -38,5 +41,16 @@ script = ExtResource("5_036b0")
 [node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
 position = Vector2(495, 173)
 
-[node name="enemy" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(300, 0)
+[node name="Inv_UI" parent="." instance=ExtResource("7_pkg7o")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 367.0
+offset_top = 1.0
+offset_right = 367.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
