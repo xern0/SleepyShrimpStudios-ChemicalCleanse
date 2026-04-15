@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq85y4obpv0x"]
+[gd_scene load_steps=8 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwesb0shpcytr" path="res://pausescreen.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://bvb0yrfn5utel" path="res://tempspraybottle.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_pkg7o"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -25,8 +26,10 @@ process_mode = 3
 anchors_preset = -1
 anchor_right = 0.731
 anchor_bottom = 0.74500006
-offset_right = 843.888
-offset_bottom = 482.23996
+offset_left = -234.0
+offset_top = -150.0
+offset_right = 611.888
+offset_bottom = 332.23996
 animation_duration = 2.3
 
 [node name="hand" type="Node2D" parent="."]
@@ -36,3 +39,17 @@ script = ExtResource("5_036b0")
 
 [node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
 position = Vector2(495, 173)
+
+[node name="Inv_UI" parent="." instance=ExtResource("7_pkg7o")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 99.00001
+offset_top = 25.0
+offset_right = 99.00001
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
