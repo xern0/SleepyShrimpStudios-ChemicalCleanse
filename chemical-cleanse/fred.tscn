@@ -817,7 +817,7 @@ size = Vector2(77.5, 80.5)
 size = Vector2(201, 201)
 
 [node name="fred" type="CharacterBody2D"]
-position = Vector2(69, 46)
+position = Vector2(68, 46)
 motion_mode = 1
 script = ExtResource("1_6nlm4")
 
