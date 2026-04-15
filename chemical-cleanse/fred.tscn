@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=123 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="Texture2D" uid="uid://2moox4unp1jl" path="res://assets/player temp idle.png" id="1_362cg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://db4pb41obbrul" path="res://enemyhitbox.tscn" id="4_dw68t"]
 [ext_resource type="Texture2D" uid="uid://cdudli7k5jhf8" path="res://assets/mop-0001-Sheet.png" id="4_johly"]
 [ext_resource type="PackedScene" uid="uid://bqe0iglop35ik" path="res://Interact_ font.tscn" id="5_6nlm4"]
+[ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="10_rl0ek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkdq5"]
 atlas = ExtResource("2_6nwiu")
@@ -931,6 +932,8 @@ position = Vector2(23.5, 24.5)
 shape = SubResource("RectangleShape2D_dw68t")
 
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
+
+[node name="Inv_UI" parent="." instance=ExtResource("10_rl0ek")]
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox" to="enemyhitbox" method="_on_area_entered"]

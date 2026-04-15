@@ -94,13 +94,8 @@ text = "Start"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
-<<<<<<< HEAD
 position = Vector2(1372, 319)
 scale = Vector2(5.1562505, 6.191919)
-=======
-position = Vector2(559.00006, 132.00002)
-scale = Vector2(2.452009, 2.6388888)
->>>>>>> 06ac8499344a1952cfab7cbdb122206744c36f86
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
 autoplay = "main menu"
@@ -108,13 +103,8 @@ frame_progress = 0.45094833
 
 [node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="."]
 z_index = 1
-<<<<<<< HEAD
 position = Vector2(1434.1251, 895.25006)
 scale = Vector2(1.4884113, 1.6662036)
-=======
-position = Vector2(592.25, 356.5)
-scale = Vector2(0.620573, 0.66203696)
->>>>>>> 06ac8499344a1952cfab7cbdb122206744c36f86
 texture = ExtResource("3_fu7sn")
 
 [connection signal="pressed" from="PanelContainer/Start" to="." method="_on_start_pressed"]

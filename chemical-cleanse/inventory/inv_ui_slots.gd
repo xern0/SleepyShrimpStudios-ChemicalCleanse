@@ -58,3 +58,4 @@ func _notification(what):
 	if what == NOTIFICATION_DRAG_END:
 		if inv.slots[my_index].item != null:
 			item_visual.visible = true
+			
