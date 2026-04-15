@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://jeao4x0vrc04"]
+[gd_scene load_steps=9 format=3 uid="uid://jeao4x0vrc04"]
 
 [ext_resource type="Script" uid="uid://cf585n1ftmio0" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://k58ac74r12px" path="res://assets/main menu/Logo-Sheet.png" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://4hn6kpodn14d" path="res://MainMenu_canvas_layer.gd" id="2_jix8l"]
 [ext_resource type="Texture2D" uid="uid://d1e6ap3uwju1p" path="res://assets/main menu/GameMainMenu(firstDraft).png" id="3_fu7sn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
@@ -44,36 +45,38 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_06t4h")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_jix8l")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 z_index = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "(click anywhere to start)"
 
-[node name="Start" type="Button" parent="PanelContainer"]
+[node name="Start" type="Button" parent="CanvasLayer/PanelContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
@@ -92,19 +95,19 @@ theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/font_size = 80
 text = "Start"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 z_index = 2
-position = Vector2(1372, 319)
-scale = Vector2(5.1562505, 6.191919)
+position = Vector2(559.00006, 129)
+scale = Vector2(2.4754462, 2.6010098)
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
 autoplay = "main menu"
 frame_progress = 0.45094833
 
-[node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="."]
+[node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
-position = Vector2(1434.1251, 895.25006)
-scale = Vector2(1.4884113, 1.6662036)
+position = Vector2(573, 323.00003)
+scale = Vector2(0.59622383, 0.60416657)
 texture = ExtResource("3_fu7sn")
 
-[connection signal="pressed" from="PanelContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Start" to="." method="_on_start_pressed"]
