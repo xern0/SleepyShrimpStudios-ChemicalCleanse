@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgmrjxmondmxk"]
+
+[ext_resource type="Script" uid="uid://drp56sjv2dmq3" path="res://hotbar.gd" id="1_qbt7h"]
+[ext_resource type="PackedScene" uid="uid://cvwig44k2ivfa" path="res://inv_ui_slots.tscn" id="2_l6vt0"]
+
+[node name="Hotbar" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.57500005
+anchor_top = 1.0
+anchor_right = 0.57500005
+anchor_bottom = 1.0
+offset_left = -725.4
+offset_top = -280.0
+offset_right = 724.6
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_qbt7h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -732.5
+offset_top = -117.0
+offset_right = 758.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -14
+
+[node name="inv_UI_slots" parent="HBoxContainer" instance=ExtResource("2_l6vt0")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="inv_UI_slots2" parent="HBoxContainer" instance=ExtResource("2_l6vt0")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="inv_UI_slots3" parent="HBoxContainer" instance=ExtResource("2_l6vt0")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="inv_UI_slots4" parent="HBoxContainer" instance=ExtResource("2_l6vt0")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="inv_UI_slots5" parent="HBoxContainer" instance=ExtResource("2_l6vt0")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2

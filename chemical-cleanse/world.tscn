@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq85y4obpv0x"]
+[gd_scene load_steps=8 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwesb0shpcytr" path="res://pausescreen.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://bvb0yrfn5utel" path="res://tempspraybottle.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://bgmrjxmondmxk" path="res://hotbar.tscn" id="7_pkg7o"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -17,12 +18,14 @@ position = Vector2(858, 257)
 position = Vector2(666, 473)
 
 [node name="fred" parent="." instance=ExtResource("1_fj7yv")]
+z_index = 2
 inv = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
 [node name="Pausescreen" parent="CanvasLayer" instance=ExtResource("4_aqk2v")]
+visible = false
 anchors_preset = -1
 anchor_right = 0.731
 anchor_bottom = 0.74500006
@@ -37,3 +40,9 @@ script = ExtResource("5_036b0")
 
 [node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
 position = Vector2(495, 173)
+
+[node name="Hotbar" parent="." instance=ExtResource("7_pkg7o")]
+offset_left = 98.0
+offset_top = 357.0
+offset_right = 1548.0
+offset_bottom = 637.0
