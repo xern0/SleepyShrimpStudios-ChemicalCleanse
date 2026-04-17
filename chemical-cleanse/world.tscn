@@ -18,7 +18,6 @@ position = Vector2(858, 257)
 position = Vector2(666, 473)
 
 [node name="fred" parent="." instance=ExtResource("1_fj7yv")]
-z_index = 2
 inv = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
