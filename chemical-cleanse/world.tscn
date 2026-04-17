@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq85y4obpv0x"]
+[gd_scene load_steps=9 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://bvb0yrfn5utel" path="res://tempspraybottle.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://dsng30rfn3opq" path="res://enemyfix.tscn" id="8_gbfbk"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -64,3 +65,6 @@ script = ExtResource("5_036b0")
 
 [node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
 position = Vector2(495, 173)
+
+[node name="enemy" parent="." instance=ExtResource("8_gbfbk")]
+position = Vector2(594, 681)
