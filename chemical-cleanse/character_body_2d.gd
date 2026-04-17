@@ -17,8 +17,8 @@ extends CharacterBody2D
 
 
 
-const PLAYER_TEMP_ROLL = preload("uid://rognx6bw0y7o")
 const PLAYER_TEMP_RUN = preload("uid://bpdhx0w15yeb0")
+const PLAYER_TEMP_ROLL = preload("uid://cjrny7jutk8gr")
 
 var normal_speed := 500
 var roll_speed := 1200

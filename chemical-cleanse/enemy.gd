@@ -41,4 +41,4 @@ func _on_enemyhurtbox_enemyhurt() -> void:
 	#stun using reused kb stuff
 	var stun = (global_position - global_position).normalized()
 	enemybody.apply_knockback(stun, 0.0, 0.2)
-	print("nmekb")
+	print("nmestun")
