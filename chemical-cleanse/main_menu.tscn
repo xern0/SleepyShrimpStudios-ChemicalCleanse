@@ -97,8 +97,8 @@ text = "Start"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 z_index = 2
-position = Vector2(559.00006, 129)
-scale = Vector2(2.4754462, 2.6010098)
+position = Vector2(1549.9999, 371.00003)
+scale = Vector2(8.813616, 7.401514)
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
 autoplay = "main menu"
@@ -106,8 +106,8 @@ frame_progress = 0.45094833
 
 [node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
-position = Vector2(573, 323.00003)
-scale = Vector2(0.59622383, 0.60416657)
+position = Vector2(1597.9064, 915.00006)
+scale = Vector2(1.6667641, 1.6956018)
 texture = ExtResource("3_fu7sn")
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Start" to="." method="_on_start_pressed"]

@@ -47,15 +47,17 @@ animation_duration = 2.3
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("7_pkg7o")]
 anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -758.0
-offset_top = -1.0
-offset_right = -758.0
-offset_bottom = -1.0
+anchor_left = 0.521
+anchor_top = 0.013
+anchor_right = 0.521
+anchor_bottom = 0.013
+offset_left = -24.192017
+offset_top = 14.576
+offset_right = -24.192017
+offset_bottom = 14.576
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.55, 0.55)
+scale = Vector2(1, 1.35)
 
 [node name="hand" type="Node2D" parent="."]
 visible = false
