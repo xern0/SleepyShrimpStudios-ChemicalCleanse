@@ -142,6 +142,10 @@ func _on_hurtbox_hurt() -> void:
 	
 func _on_hurtbox_died() -> void:
 	print("ded")
+	$roll.visible = true
+	await get_tree().create_timer(1.0).timeout
+	get_tree().reload_current_scene.call_deferred()
+
 
 
 func collect(item):

@@ -1,9 +1,4 @@
 extends CanvasLayer
-
-
-
-
-
 const Heart_size: int = 2
 const heart_full = preload("res://assets/Health asset.png")
 const heart_half = preload("res://assets/Health asset half.png")
@@ -12,9 +7,13 @@ const heart_empty = preload("res://assets/Health asset  dead.png")
 @onready var hearts_container: HBoxContainer = $hearts
 #19:37 in video https://youtu.be/vBJVoQDd31o?si=KRXstkvaDClNlDQU
 func _ready() -> void:
-	pass
-		
+	var parent = get_parent()
+	if parent.has_signal("on_health_changed"):
+		parent.on_health_changed.connect(_update_health)
+	_update_health(parent.healthpoints)
 	
+		
+	#logic for heart display
 func _update_health(new_health: int) -> void:
 	var hearts = hearts_container.get_children()
 	var max_hearts = len(hearts)
