@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var attack_up: AnimatedSprite2D = $melee_attack_stuff/attack_up
 @onready var attack_right: AnimatedSprite2D = $melee_attack_stuff/attack_right
 @onready var attack_left: AnimatedSprite2D = $melee_attack_stuff/attack_left
+@onready var hand_sprite: Sprite2D = $fred/HandSprite
+
 
 @export var inv:Inv
 
@@ -20,6 +22,9 @@ var normal_speed := 500
 var roll_speed := 1200
 var run_speed := 900
 var max_speed := normal_speed
+var last_direction := Vector2.RIGHT
+var facing_right := true
+
 
 
 func get_input():
@@ -28,6 +33,8 @@ func get_input():
 
 func _physics_process(_delta):
 	get_input()
+	_update_hand()
+	_update_hand_layer()
 	move_and_slide()
 	if Input.is_action_pressed("up") and Input.is_action_pressed("left"):
 		$fred_anim.play("walk_up_left")
@@ -88,13 +95,22 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("roll"):
 		max_speed = roll_speed
 		get_node("timer").start()
+		$fred.visible = false
 		$roll.visible = true
+		hand_sprite.visible = false
 
 
 
 func _on_timer_timeout() -> void:
 	max_speed = normal_speed
+	$fred.visible = true
 	$roll.visible = false
+	max_speed = normal_speed
+	$fred.visible = true
+	$roll.visible = false
+	if Eventbus.current_item != null:  
+		hand_sprite.visible = true
+
 
 
 func _on_hurtbox_died() -> void:
@@ -106,3 +122,54 @@ func _on_hurtbox_hurt() -> void:
 
 func collect(item):
 	inv.insert(item)
+
+func _ready():
+	hand_sprite.visible = false
+	Eventbus.item_equipped.connect(_on_item_equipped)
+	hand_sprite.z_index = -1
+	print(hand_sprite.z_index)
+func _on_item_equipped(item):
+	if item == null:
+		hand_sprite.visible = false
+	else:
+		hand_sprite.visible = true
+		hand_sprite.texture = item.texture
+		hand_sprite.scale = Vector2(0.3, 0.3)
+		hand_sprite.position = Vector2(20, 0) 
+
+func _update_hand_position():
+	if !hand_sprite.visible:
+		return
+	var offset := Vector2.ZERO
+	if abs(last_direction.x) > abs(last_direction.y):
+		if last_direction.x > 0:
+			offset = Vector2(20, 0) 
+			hand_sprite.flip_h = false
+		else:
+			offset = Vector2(-20, 0) 
+			hand_sprite.flip_h = true
+	else:
+		if last_direction.y > 0:
+			offset = Vector2(0, 20) 
+		else:
+			offset = Vector2(0, -20)
+	hand_sprite.position = offset
+	_update_hand_position()
+
+func _update_hand():
+	if !hand_sprite.visible:
+		return
+	if facing_right:
+		hand_sprite.position = Vector2(20, 0)
+		hand_sprite.flip_h = false
+	else:
+		hand_sprite.position = Vector2(-20, 0)
+		hand_sprite.flip_h = true
+		
+func _update_hand_layer():
+	if !hand_sprite.visible:
+		return
+	if last_direction.y < 0:  
+		fred.z_index = -1
+	elif last_direction.y > 0: 
+		fred.z_index = 1
