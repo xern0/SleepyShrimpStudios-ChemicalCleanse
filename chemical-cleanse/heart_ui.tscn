@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://y7yv6coigsa0"]
+
+[ext_resource type="Script" uid="uid://b57ab6okfttk1" path="res://heart_ui.gd" id="1_fq772"]
+[ext_resource type="Texture2D" uid="uid://b3refa15cau5a" path="res://assets/Health asset.png" id="1_qhayj"]
+
+[node name="heart ui" type="CanvasLayer"]
+script = ExtResource("1_fq772")
+
+[node name="hearts" type="HBoxContainer" parent="."]
+offset_right = 200.0
+offset_bottom = 64.0
+scale = Vector2(1.5, 1.5)
+
+[node name="heart1" type="TextureRect" parent="hearts"]
+layout_mode = 2
+texture = ExtResource("1_qhayj")
+stretch_mode = 2
+
+[node name="heart2" type="TextureRect" parent="hearts"]
+layout_mode = 2
+texture = ExtResource("1_qhayj")
+stretch_mode = 2
+
+[node name="heart3" type="TextureRect" parent="hearts"]
+layout_mode = 2
+texture = ExtResource("1_qhayj")
+stretch_mode = 2
