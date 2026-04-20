@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://rnx47ahwjxvk"]
+
+[ext_resource type="Script" uid="uid://dm0c40x240oeq" path="res://test_lvl.gd" id="1_5kssm"]
+[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_hpnwk"]
+[ext_resource type="PackedScene" uid="uid://dsng30rfn3opq" path="res://enemyfix.tscn" id="2_hpnwk"]
+
+[node name="test_lvl" type="Node2D"]
+script = ExtResource("1_5kssm")
+
+[node name="fred" parent="." instance=ExtResource("1_hpnwk")]
+
+[node name="enemy" parent="." instance=ExtResource("2_hpnwk")]
+position = Vector2(985, 44)

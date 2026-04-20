@@ -1,14 +1,15 @@
-[gd_scene load_steps=122 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=123 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="Texture2D" uid="uid://2moox4unp1jl" path="res://assets/player temp idle.png" id="1_362cg"]
 [ext_resource type="Texture2D" uid="uid://bgt1chd7s20ps" path="res://assets/IdleAnimation-Sheet(v2).png" id="2_6nwiu"]
 [ext_resource type="Texture2D" uid="uid://bex8uj27rb1t0" path="res://assets/CharacterDesign2-Sheet.png" id="2_nxjit"]
-[ext_resource type="Texture2D" uid="uid://rognx6bw0y7o" path="res://assets/player temp roll.png" id="3_nrkb6"]
 [ext_resource type="PackedScene" uid="uid://k1pxhnymcnwl" path="res://hurtbox.tscn" id="4_bwymb"]
 [ext_resource type="PackedScene" uid="uid://db4pb41obbrul" path="res://enemyhitbox.tscn" id="4_dw68t"]
 [ext_resource type="Texture2D" uid="uid://cdudli7k5jhf8" path="res://assets/mop-0001-Sheet.png" id="4_johly"]
 [ext_resource type="PackedScene" uid="uid://bqe0iglop35ik" path="res://Interact_ font.tscn" id="5_6nlm4"]
+[ext_resource type="Texture2D" uid="uid://cjrny7jutk8gr" path="res://assets/download.jpeg" id="5_rl0ek"]
+[ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="10_rl0ek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkdq5"]
 atlas = ExtResource("2_6nwiu")
@@ -817,7 +818,7 @@ size = Vector2(77.5, 80.5)
 size = Vector2(201, 201)
 
 [node name="fred" type="CharacterBody2D"]
-position = Vector2(68, 46)
+position = Vector2(69, 46)
 motion_mode = 1
 script = ExtResource("1_6nlm4")
 
@@ -834,8 +835,6 @@ position = Vector2(23, 24.499998)
 scale = Vector2(2.4375, 2.5312498)
 texture = ExtResource("1_362cg")
 
-[node name="HandSprite" type="Sprite2D" parent="fred"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(22, 25)
 shape = SubResource("RectangleShape2D_uoe1y")
@@ -847,8 +846,8 @@ one_shot = true
 [node name="roll" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(23, 24.499998)
-scale = Vector2(2.4375, 2.5312498)
-texture = ExtResource("3_nrkb6")
+scale = Vector2(0.65, 0.675)
+texture = ExtResource("5_rl0ek")
 
 [node name="melee_attack_stuff" type="Node2D" parent="."]
 
@@ -870,6 +869,7 @@ disabled = true
 
 [node name="attack_up" type="AnimatedSprite2D" parent="melee_attack_stuff"]
 visible = false
+z_index = -1
 position = Vector2(21, -29.999998)
 rotation = -3.1415925
 scale = Vector2(2.668, 2.797)
@@ -934,8 +934,12 @@ shape = SubResource("RectangleShape2D_dw68t")
 
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
 
+[node name="Inv_UI" parent="." instance=ExtResource("10_rl0ek")]
+
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox" to="enemyhitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox2" to="enemyhitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox3" to="enemyhitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox4" to="enemyhitbox" method="_on_area_entered"]
+[connection signal="died" from="hurtbox" to="." method="_on_hurtbox_died"]
+[connection signal="hurt" from="hurtbox" to="." method="_on_hurtbox_hurt"]

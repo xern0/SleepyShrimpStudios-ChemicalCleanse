@@ -4,7 +4,7 @@ class_name enemyhurtbox
 signal enemyhurt()
 signal enemydied()
 
-@export var enemyhealthpoints:= 1
+@export var enemyhealthpoints:= 3
 
 func enemy_get_damage(value: int):
 	enemyhealthpoints -= value
