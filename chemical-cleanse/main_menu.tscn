@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://jeao4x0vrc04"]
+[gd_scene load_steps=15 format=3 uid="uid://jeao4x0vrc04"]
 
 [ext_resource type="Script" uid="uid://cf585n1ftmio0" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://k58ac74r12px" path="res://assets/main menu/Logo-Sheet.png" id="2_7vrkn"]
 [ext_resource type="Script" uid="uid://4hn6kpodn14d" path="res://MainMenu_canvas_layer.gd" id="2_jix8l"]
-[ext_resource type="Texture2D" uid="uid://d1e6ap3uwju1p" path="res://assets/main menu/GameMainMenu(firstDraft).png" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://dur7soy3mn0ls" path="res://assets/main menu/GameMainMenu(firstDraft) (new) (1)-Sheet.png" id="5_glbon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
 atlas = ExtResource("2_7vrkn")
@@ -32,6 +32,49 @@ animations = [{
 "loop": true,
 "name": &"main menu",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlkkf"]
+atlas = ExtResource("5_glbon")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
+atlas = ExtResource("5_glbon")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("5_glbon")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
+atlas = ExtResource("5_glbon")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
+atlas = ExtResource("5_glbon")
+region = Rect2(0, 4320, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0k4wn"]
+animations = [{
+"frames": [{
+"duration": 0.51,
+"texture": SubResource("AtlasTexture_nlkkf")
+}, {
+"duration": 0.51,
+"texture": SubResource("AtlasTexture_qe12f")
+}, {
+"duration": 0.51,
+"texture": SubResource("AtlasTexture_8qtwp")
+}, {
+"duration": 0.51,
+"texture": SubResource("AtlasTexture_dy7ct")
+}, {
+"duration": 0.51,
+"texture": SubResource("AtlasTexture_0o4t1")
+}],
+"loop": true,
+"name": &"Truck-kun",
+"speed": 6.0
 }]
 
 [node name="Main menu" type="Control"]
@@ -102,13 +145,14 @@ scale = Vector2(8.813616, 7.401514)
 sprite_frames = SubResource("SpriteFrames_nlkkf")
 animation = &"main menu"
 autoplay = "main menu"
-frame = 1
-frame_progress = 0.16917163
+frame_progress = 0.78604263
 
-[node name="GameMainMenu(firstDraft)" type="Sprite2D" parent="CanvasLayer"]
-z_index = 1
-position = Vector2(1597.9064, 915.00006)
-scale = Vector2(1.6667641, 1.6956018)
-texture = ExtResource("3_fu7sn")
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(1577.5, 931.49994)
+scale = Vector2(1.6546874, 1.7046295)
+sprite_frames = SubResource("SpriteFrames_0k4wn")
+animation = &"Truck-kun"
+autoplay = "Truck-kun"
+frame_progress = 0.71775836
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Start" to="." method="_on_start_pressed"]

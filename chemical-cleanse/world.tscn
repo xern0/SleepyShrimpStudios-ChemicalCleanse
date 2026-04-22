@@ -37,13 +37,14 @@ editor_draw_drag_margin = true
 process_mode = 3
 
 [node name="Pausescreen" parent="CanvasLayer" instance=ExtResource("4_aqk2v")]
+z_index = 2
 anchors_preset = -1
 anchor_right = 0.731
 anchor_bottom = 0.74500006
-offset_left = -234.0
-offset_top = -150.0
-offset_right = 611.888
-offset_bottom = 332.23996
+offset_left = -46.0
+offset_top = -61.0
+offset_right = 799.888
+offset_bottom = 421.23996
 animation_duration = 2.3
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("7_pkg7o")]
