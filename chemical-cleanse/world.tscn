@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq85y4obpv0x"]
+[gd_scene load_steps=11 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
@@ -9,21 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://bgmrjxmondmxk" path="res://hotbar.tscn" id="6_ioo17"]
 [ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dsng30rfn3opq" path="res://enemyfix.tscn" id="8_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://b442egw736vgm" path="res://enemyspawn.tscn" id="9_ioo17"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
 metadata/_edit_vertical_guides_ = [942.0]
 
 [node name="Bottle" parent="." instance=ExtResource("2_tlwt5")]
+visible = false
 position = Vector2(858, 257)
 
 [node name="Bottle2" parent="." instance=ExtResource("2_tlwt5")]
+visible = false
 position = Vector2(666, 473)
 
 [node name="fred" parent="." instance=ExtResource("1_fj7yv")]
 z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="fred"]
+visible = false
 position = Vector2(26, 22)
 limit_enabled = false
 limit_left = -400
@@ -35,8 +39,10 @@ editor_draw_drag_margin = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="Pausescreen" parent="CanvasLayer" instance=ExtResource("4_aqk2v")]
+visible = false
 z_index = 2
 anchors_preset = -1
 anchor_right = 0.731
@@ -48,6 +54,7 @@ offset_bottom = 421.23996
 animation_duration = 2.3
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("7_pkg7o")]
+visible = false
 anchors_preset = -1
 anchor_left = 0.521
 anchor_top = 0.013
@@ -62,15 +69,19 @@ grow_vertical = 2
 scale = Vector2(1, 1.35)
 
 [node name="Hotbar" parent="CanvasLayer" instance=ExtResource("6_ioo17")]
+visible = false
 
 [node name="hand" type="Node2D" parent="."]
 visible = false
 script = ExtResource("5_036b0")
 
 [node name="Item_icon" type="Sprite2D" parent="hand"]
+visible = false
 
 [node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
+visible = false
 position = Vector2(495, 173)
 
+[node name="enemyspawn" parent="." instance=ExtResource("9_ioo17")]
+
 [node name="enemy" parent="." instance=ExtResource("8_gbfbk")]
-position = Vector2(594, 681)
