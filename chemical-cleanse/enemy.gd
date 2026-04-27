@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 @onready var enemy: Sprite2D = $enemy
 @onready var Hitbox: hitbox = $hitbox
 @onready var tergent=$"../fred"

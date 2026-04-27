@@ -34,14 +34,16 @@ texture = ExtResource("3_87fxy")
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_3yqyl")
 
-[node name="hitbox" parent="." instance=ExtResource("4_7ol1q")]
+[node name="hitbox" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("4_7ol1q")]
+enemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(17, 14.5)
 shape = SubResource("RectangleShape2D_epg4t")
 debug_color = Color(0.94513386, 0.183238, 0.38336375, 0.41960785)
 
-[node name="enemyhurtbox" parent="." instance=ExtResource("5_fi2i0")]
+[node name="enemyhurtbox" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("5_fi2i0")]
+enemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhurtbox"]
 position = Vector2(16.75, 14.25)

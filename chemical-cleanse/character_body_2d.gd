@@ -1,14 +1,16 @@
 extends CharacterBody2D
 @onready var fred: Sprite2D = $fred
-@onready var roll: Sprite2D = $roll
+#@onready var roll: Sprite2D = $roll
 @onready var fred_anim: AnimatedSprite2D = $fred_anim
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var attack_down: AnimatedSprite2D = $melee_attack_stuff/attack_down
 @onready var attack_up: AnimatedSprite2D = $melee_attack_stuff/attack_up
 @onready var attack_right: AnimatedSprite2D = $melee_attack_stuff/attack_right
 @onready var attack_left: AnimatedSprite2D = $melee_attack_stuff/attack_left
-@onready var enemy: CharacterBody2D = $"../enemy"
+#@onready var enemy: CharacterBody2D = $"../enemy"
 @onready var hand_sprite: Sprite2D = $fred/HandSprite
+#@onready var enemy: CharacterBody2D = $"."
+
 
 
 
@@ -24,6 +26,7 @@ const PLAYER_TEMP_ROLL = preload("uid://cjrny7jutk8gr")
 var normal_speed := 500
 var roll_speed := 1200
 var run_speed := 900
+var no_speed := 0
 var max_speed := normal_speed
 var last_direction := Vector2.RIGHT
 var facing_right := true
@@ -60,7 +63,7 @@ func _physics_process(_delta):
 
 		
 	if Input.is_action_pressed("run"):
-		fred.set_texture(PLAYER_TEMP_RUN)
+		#fred.set_texture(PLAYER_TEMP_RUN)
 		max_speed = run_speed
 	if Input.is_action_just_released("run"):
 		max_speed = normal_speed
@@ -130,18 +133,24 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("roll"):
 		max_speed = roll_speed
 		get_node("timer").start()
-		$fred.visible = false
-		$roll.visible = true
+		$fred_Roll_death.play("Roll")
+		$fred_Roll_death.visible = true
+		$fred_anim.visible = false
 		hand_sprite.visible = false
+		if $fred_Roll_death.is_playing():
+			return
+		#if no_speed:
+			#return
+
 
 
 func _on_timer_timeout() -> void:
 	max_speed = normal_speed
-	$fred.visible = true
-	$roll.visible = false
+	$fred_anim.visible = true
+	$fred_Roll_death.visible = false
 	max_speed = normal_speed
-	$fred.visible = true
-	$roll.visible = false
+	$fred_anim.visible = true
+	$fred_Roll_death.visible = false
 	if Eventbus.current_item != null:  
 		hand_sprite.visible = true
 
@@ -150,14 +159,18 @@ func _on_timer_timeout() -> void:
 
 func _on_hurtbox_hurt() -> void:
 	print("ow")
-	var knockback_direction = (enemy.global_position - global_position).normalized()
-	enemy.apply_knockback(knockback_direction, 1750.0, 0.1)
+	#var knockback_direction = (enemy.global_position - global_position).normalized()
+	#enemy.apply_knockback(knockback_direction, 1750.0, 0.1)
 	print("kb")
 	
 func _on_hurtbox_died() -> void:
 	print("ded")
-	$roll.visible = true
-	await get_tree().create_timer(1.0).timeout
+	max_speed = no_speed
+	fred_anim.visible = false
+	$fred_Roll_death.visible = true
+	$hurtbox/CollisionShape2D.set_deferred("disabled", true)
+	$fred_Roll_death.play("scary_death")
+	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene.call_deferred()
 
 
