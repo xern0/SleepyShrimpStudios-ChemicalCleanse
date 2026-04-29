@@ -3,7 +3,7 @@ extends Node2D
 var rand = RandomNumberGenerator.new()
 var enemy_scene = preload("res://enemyfix.tscn")
 var screen_size: Vector2
-var spawn_count = 5
+var spawn_count = 7
 
 func _ready() -> void:
 	screen_size = get_viewport().get_visible_rect().size
