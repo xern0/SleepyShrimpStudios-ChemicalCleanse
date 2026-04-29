@@ -10,6 +10,7 @@ extends CharacterBody2D
 #@onready var enemy: CharacterBody2D = $"../enemy"
 @onready var hand_sprite: Sprite2D = $fred/HandSprite
 #@onready var enemy: CharacterBody2D = $"."
+@onready var blinking: AnimationPlayer = $blinking
 
 
 
@@ -30,7 +31,6 @@ var no_speed := 0
 var max_speed := normal_speed
 var last_direction := Vector2.RIGHT
 var facing_right := true
-
 
 	
 func get_input():
@@ -77,6 +77,8 @@ func _physics_process(_delta):
 			return
 		if $melee_attack_stuff/attack_down.is_playing():
 			return
+		if $fred_Roll.is_playing():
+			return
 		$melee_attack_stuff/attack_down.visible = true
 		$melee_attack_stuff/attack_down.play("attack_down")
 		$melee_attack_stuff/workingenemyhitbox/CollisionShape2D.disabled = false
@@ -91,6 +93,8 @@ func _physics_process(_delta):
 		if $melee_attack_stuff/attack_right.is_playing():
 			return
 		if $melee_attack_stuff/attack_down.is_playing():
+			return
+		if $fred_Roll.is_playing():
 			return
 		$melee_attack_stuff/attack_up.visible = true
 		$melee_attack_stuff/attack_up.play("attack_up")
@@ -107,6 +111,8 @@ func _physics_process(_delta):
 			return
 		if $melee_attack_stuff/attack_down.is_playing():
 			return
+		if $fred_Roll.is_playing():
+			return
 		$melee_attack_stuff/attack_left.visible = true
 		$melee_attack_stuff/attack_left.play("attack_left")
 		$melee_attack_stuff/workingenemyhitbox4/CollisionShape2Dleft.disabled = false
@@ -122,6 +128,8 @@ func _physics_process(_delta):
 			return
 		if $melee_attack_stuff/attack_down.is_playing():
 			return
+		if $fred_Roll.is_playing():
+			return
 		$melee_attack_stuff/attack_right.visible = true
 		$melee_attack_stuff/attack_right.play("attack_right")
 		$melee_attack_stuff/workingenemyhitbox3/CollisionShape2Dright.disabled = false
@@ -131,26 +139,27 @@ func _physics_process(_delta):
 
 
 	if Input.is_action_just_pressed("roll"):
+		if $fred_Roll.is_playing():
+			return
+		if $Death.is_playing():
+			return
 		max_speed = roll_speed
 		get_node("timer").start()
-		$fred_Roll_death.play("Roll")
-		$fred_Roll_death.visible = true
+		$fred_Roll.play("Roll")
+		$fred_Roll.visible = true
 		$fred_anim.visible = false
 		hand_sprite.visible = false
-		if $fred_Roll_death.is_playing():
-			return
-		#if no_speed:
-			#return
+
 
 
 
 func _on_timer_timeout() -> void:
 	max_speed = normal_speed
 	$fred_anim.visible = true
-	$fred_Roll_death.visible = false
-	max_speed = normal_speed
-	$fred_anim.visible = true
-	$fred_Roll_death.visible = false
+	$fred_Roll.visible = false
+	#max_speed = normal_speed
+	#$fred_anim.visible = true
+	#$fred_Roll.visible = false
 	if Eventbus.current_item != null:  
 		hand_sprite.visible = true
 
@@ -162,14 +171,17 @@ func _on_hurtbox_hurt() -> void:
 	#var knockback_direction = (enemy.global_position - global_position).normalized()
 	#enemy.apply_knockback(knockback_direction, 1750.0, 0.1)
 	print("kb")
+	blinking.play("HurtBlink")
+	await get_tree().create_timer(0.75).timeout
+	blinking.play("RESET")
 	
 func _on_hurtbox_died() -> void:
 	print("ded")
 	max_speed = no_speed
 	fred_anim.visible = false
-	$fred_Roll_death.visible = true
+	$Death.visible = true
 	$hurtbox/CollisionShape2D.set_deferred("disabled", true)
-	$fred_Roll_death.play("scary_death")
+	$Death.play("scary_death")
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene.call_deferred()
 
@@ -179,6 +191,7 @@ func collect(item):
 	inv.insert(item)
 
 func _ready():
+	blinking.play("RESET")
 	hand_sprite.visible = false
 	Eventbus.item_equipped.connect(_on_item_equipped)
 	hand_sprite.z_index = -1
