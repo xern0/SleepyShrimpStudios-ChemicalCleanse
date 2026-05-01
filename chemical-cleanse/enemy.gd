@@ -8,7 +8,6 @@ class_name Enemy
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 
-
 var speed=300
 	
 func _physics_process (_delta):

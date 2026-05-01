@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b442egw736vgm"]
+
+[ext_resource type="Script" uid="uid://blaoxxb1thpvv" path="res://enemyspawn.gd" id="1_ukwuj"]
+[ext_resource type="PackedScene" uid="uid://dsng30rfn3opq" path="res://enemyfix.tscn" id="2_m5ohs"]
+[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="2_ukwuj"]
+
+[node name="enemyspawn" type="Node2D"]
+script = ExtResource("1_ukwuj")
+
+[node name="fred" parent="." instance=ExtResource("2_ukwuj")]
+
+[node name="enemy" parent="." instance=ExtResource("2_m5ohs")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 12.5
+autostart = true
