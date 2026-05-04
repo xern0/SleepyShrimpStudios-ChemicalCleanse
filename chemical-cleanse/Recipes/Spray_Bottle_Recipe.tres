@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRecipes" load_steps=6 format=3 uid="uid://dplcnwc423054"]
+
+[ext_resource type="Script" uid="uid://c4h5j41y6468n" path="res://inventory/inventory_item.gd" id="1_rmo57"]
+[ext_resource type="Resource" uid="uid://cfl85a8wlxoyy" path="res://assets/Items/tempspraybottle.tres" id="1_spoeu"]
+[ext_resource type="Script" uid="uid://beo1levkpdh7k" path="res://Recipes/ItemRecipes.gd" id="2_7sfl5"]
+[ext_resource type="Resource" uid="uid://c11q52hn4acu2" path="res://Recipes/Nozzle.tres" id="3_g01gw"]
+[ext_resource type="Resource" uid="uid://d2sjrmk1u2m21" path="res://Recipes/Water_Bottle.tres" id="4_5oi36"]
+
+[resource]
+script = ExtResource("2_7sfl5")
+recipe_name = "Spray Bottle"
+recipe_final_name = ExtResource("1_spoeu")
+recipe_material_array = Array[ExtResource("1_rmo57")]([ExtResource("3_g01gw"), ExtResource("4_5oi36")])
+metadata/_custom_type_script = "uid://beo1levkpdh7k"

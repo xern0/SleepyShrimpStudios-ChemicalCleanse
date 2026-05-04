@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjv8wxiwn3nkp"]
+
+[ext_resource type="Script" uid="uid://cfyiepdonltrv" path="res://table.gd" id="1_v5i0k"]
+[ext_resource type="Texture2D" uid="uid://ddxhxvvidic5" path="res://assets/Sprite sheets/Dialouge UI/dialog box medium.png" id="2_kl0hw"]
+[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="3_kl0hw"]
+[ext_resource type="PackedScene" uid="uid://c6tli2v1woh4v" path="res://cradting_ui.tscn" id="4_vjl2i"]
+[ext_resource type="PackedScene" uid="uid://cmyhel2k7572i" path="res://Nozzle.tscn" id="5_jry6c"]
+[ext_resource type="PackedScene" uid="uid://dn6v1xgf0bbwy" path="res://Water_Bottle.tscn" id="6_bhh2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjl2i"]
+size = Vector2(139, 39)
+
+[node name="Table" type="Area2D"]
+script = ExtResource("1_v5i0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(750, 244)
+shape = SubResource("RectangleShape2D_vjl2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(746, 243)
+texture = ExtResource("2_kl0hw")
+
+[node name="fred" parent="." instance=ExtResource("3_kl0hw")]
+
+[node name="CraftingUI" parent="." instance=ExtResource("4_vjl2i")]
+offset_left = 128.0
+offset_top = 58.0
+offset_right = 1315.0
+offset_bottom = 839.0
+
+[node name="Nozzle" parent="." instance=ExtResource("5_jry6c")]
+
+[node name="WaterBottle" parent="." instance=ExtResource("6_bhh2s")]
+position = Vector2(433, 476)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
