@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=175 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="Texture2D" uid="uid://bgt1chd7s20ps" path="res://assets/IdleAnimation-Sheet(v2).png" id="2_6nwiu"]
@@ -642,6 +642,45 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_6nwiu"]
+resource_name = "HurtBlink"
+length = 0.4
+loop_mode = 1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fred_anim/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5019608), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rl0ek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fred_anim/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dukst"]
+_data = {
+&"HurtBlink": SubResource("Animation_6nwiu"),
+&"RESET": SubResource("Animation_rl0ek")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_74dn4"]
 atlas = ExtResource("2_rl0ek")
 region = Rect2(0, 0, 64, 64)
@@ -819,8 +858,142 @@ animations = [{
 "texture": SubResource("AtlasTexture_0bxqc")
 }],
 "loop": false,
-"name": &"scary_death",
+"name": &"death exclamation point",
 "speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5hav"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pog7v"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6jyl"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eac1w"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vsbb"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvd3s"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a1o6"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7603f"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56wkm"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1200, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0dc"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1350, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki2ym"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1500, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wkvb"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1650, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5em72"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1800, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ogmg"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(1950, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glur2"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(2100, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weh4i"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(2250, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bk76"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(2400, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mnfx"]
+atlas = ExtResource("5_6nwiu")
+region = Rect2(2550, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fql0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5hav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pog7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6jyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eac1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vsbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvd3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a1o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7603f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56wkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki2ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wkvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5em72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ogmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glur2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weh4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bk76")
+}, {
+"duration": 100.0,
+"texture": SubResource("AtlasTexture_5mnfx")
+}],
+"loop": false,
+"name": &"scary_death",
+"speed": 16.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoe1y"]
@@ -1050,17 +1223,38 @@ motion_mode = 1
 script = ExtResource("1_6nlm4")
 
 [node name="fred_anim" type="AnimatedSprite2D" parent="."]
+clip_children = 2
 position = Vector2(24, 38)
 scale = Vector2(2.8632813, 2.8632813)
 sprite_frames = SubResource("SpriteFrames_bkdq5")
-animation = &"Rolly"
+animation = &"idle"
+frame_progress = 0.31006426
 
-[node name="fred_Roll_death" type="AnimatedSprite2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="fred_anim"]
+offset_left = -35.623466
+offset_top = -37.369713
+offset_right = 39.11596
+offset_bottom = 33.87722
+color = Color(1, 1, 1, 0)
+
+[node name="blinking" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dukst")
+}
+
+[node name="fred_Roll" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(24, 38)
 scale = Vector2(2.863, 2.863)
 sprite_frames = SubResource("SpriteFrames_xa66y")
-animation = &"Roll"
+animation = &"death exclamation point"
+
+[node name="Death" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(34, 16.000002)
+scale = Vector2(2.863, 2.863)
+sprite_frames = SubResource("SpriteFrames_fql0b")
+animation = &"scary_death"
 
 [node name="fred" type="Sprite2D" parent="."]
 position = Vector2(0, 3.8146973e-06)
