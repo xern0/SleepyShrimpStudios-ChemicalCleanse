@@ -10,6 +10,7 @@ script = ExtResource("1_ukwuj")
 [node name="fred" parent="." instance=ExtResource("2_ukwuj")]
 
 [node name="enemy" parent="." instance=ExtResource("2_m5ohs")]
+position = Vector2(-172, -230)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 12.5
