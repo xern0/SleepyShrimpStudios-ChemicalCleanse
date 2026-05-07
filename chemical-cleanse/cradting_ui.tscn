@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6tli2v1woh4v"]
+
+[ext_resource type="Script" uid="uid://by18aihimwibl" path="res://cradting_ui.gd" id="1_l4gdc"]
+[ext_resource type="PackedScene" uid="uid://n0piq4nyxmv" path="res://crafting_slots.tscn" id="2_4361o"]
+[ext_resource type="Script" uid="uid://beo1levkpdh7k" path="res://Recipes/ItemRecipes.gd" id="3_utq7s"]
+[ext_resource type="Texture2D" uid="uid://dowki1o4601ic" path="res://assets/Sprite sheets/buttons/Square Buttons 19x26.png" id="4_3x0ec"]
+[ext_resource type="Resource" uid="uid://dplcnwc423054" path="res://Recipes/Spray_Bottle_Recipe.tres" id="4_4361o"]
+
+[node name="CraftingUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l4gdc")
+inventory_slot = ExtResource("2_4361o")
+recipe_array = Array[ExtResource("3_utq7s")]([ExtResource("4_4361o")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Tree" type="Tree" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(364, 0)
+layout_mode = 2
+hide_root = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 46
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 66
+text = "test name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("4_3x0ec")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+columns = 5
+
+[node name="CraftButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Craft"
+
+[connection signal="cell_selected" from="MarginContainer/HBoxContainer/Tree" to="." method="_on_tree_cell_selected"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/CraftButton" to="." method="_on_craft_button_pressed"]

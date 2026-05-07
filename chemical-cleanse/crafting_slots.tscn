@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://n0piq4nyxmv"]
+
+[ext_resource type="Script" uid="uid://cydlrfr4kclpf" path="res://crafting_inv.gd" id="1_mtvro"]
+
+[node name="CraftingSlots" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mtvro")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmountLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

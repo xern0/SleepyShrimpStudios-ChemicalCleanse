@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c11q52hn4acu2"]
+
+[ext_resource type="Script" uid="uid://c4h5j41y6468n" path="res://inventory/inventory_item.gd" id="1_8miur"]
+[ext_resource type="Texture2D" uid="uid://dlbs6wf2m84qr" path="res://assets/emojis-free/emoji style ui/inventory_Light_example_2.png" id="2_8miur"]
+
+[resource]
+script = ExtResource("1_8miur")
+name = "Nozzle"
+texture = ExtResource("2_8miur")
+metadata/_custom_type_script = "uid://c4h5j41y6468n"
