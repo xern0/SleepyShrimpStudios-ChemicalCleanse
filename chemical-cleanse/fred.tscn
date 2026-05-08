@@ -1222,6 +1222,14 @@ position = Vector2(69, 46)
 motion_mode = 1
 script = ExtResource("1_6nlm4")
 
+[node name="stamina_bar" type="ProgressBar" parent="."]
+offset_left = -145.0
+offset_top = -124.0
+offset_right = 188.0
+offset_bottom = -113.0
+fill_mode = 1
+show_percentage = false
+
 [node name="fred_anim" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 position = Vector2(24, 38)
@@ -1236,6 +1244,7 @@ offset_top = -37.369713
 offset_right = 39.11596
 offset_bottom = 33.87722
 color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="blinking" type="AnimationPlayer" parent="."]
 libraries = {

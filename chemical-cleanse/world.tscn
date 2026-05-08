@@ -22,7 +22,6 @@ position = Vector2(666, 473)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="Pausescreen" parent="CanvasLayer" instance=ExtResource("4_aqk2v")]
 z_index = 2

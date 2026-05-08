@@ -1,6 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
-@onready var enemy: Sprite2D = $enemy
+#@onready var enemy: Sprite2D = $enemy
 @onready var Hitbox: hitbox = $hitbox
 @onready var tergent=$"../fred"
 @onready var fred: CharacterBody2D = $"."
@@ -19,6 +19,7 @@ func _physics_process (_delta):
 	else:
 		var direction=(tergent.position-position).normalized()
 		velocity=direction * speed
+	$enemy_anim.flip_h = velocity.x > 0
 	#look_at(tergent.position)
 	move_and_slide()
 	Hitbox.set_active(true)
@@ -29,7 +30,7 @@ func apply_knockback(direction: Vector2, force: float, knockback_duration: float
 	knockback_timer = knockback_duration
 	
 func _on_enemyhurtbox_enemydied() -> void:
-	$enemy.visible = false
+	$enemy_anim.visible = false
 	$cleansedenemy.visible = true
 	$hitbox.set_deferred("monitoring", false)
 	$CollisionShape2D.set_deferred("disabled", true)
