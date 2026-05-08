@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://cfl85a8wlxoyy"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://cfl85a8wlxoyy"]
 
 [ext_resource type="Script" uid="uid://c4h5j41y6468n" path="res://inventory/inventory_item.gd" id="1_41oe0"]
+[ext_resource type="Texture2D" uid="uid://dw2v1qg1xokxn" path="res://assets/Items/spray cleaner-0001-Sheet.png" id="2_41oe0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu2wo"]
+atlas = ExtResource("2_41oe0")
+region = Rect2(20, 16, 26, 46)
 
 [resource]
 script = ExtResource("1_41oe0")
 name = "tempbottlespray"
+texture = SubResource("AtlasTexture_xu2wo")
 metadata/_custom_type_script = "uid://c4h5j41y6468n"
