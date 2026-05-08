@@ -5,6 +5,7 @@ var hotbar_inv: Inv = preload("res://assets/Items/hotbar.tres")
 @onready var hbox = $HBoxContainer
 
 func _ready():
+	hotbar_inv._reset()
 	for child in hbox.get_children():
 		slots.append(child)
 	hotbar_inv.update.connect(update_slots)

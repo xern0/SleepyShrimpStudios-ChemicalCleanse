@@ -5,7 +5,12 @@ signal update
 
 @export var slots: Array[InvSlot]
  
+func _reset():
+	for slot in slots:
+		slot.item = null
+		slot.amount - 0
 
+	emit_signal("update")
 func insert(item: InvItem):
 	var itemslots = slots.filter(func(slots): return slots.item == item)
 	if !itemslots.is_empty():
