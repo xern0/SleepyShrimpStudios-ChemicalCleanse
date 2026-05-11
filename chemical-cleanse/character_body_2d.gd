@@ -13,7 +13,7 @@ extends CharacterBody2D
 @onready var blinking: AnimationPlayer = $blinking
 @export var max_stamina: float = 100.0
 @export var stamina_regen: float = 20.0
-@export var run_cost: float = 80.0
+@export var run_cost: float = 50.0
 @export var roll_cost: float = 3000.0
 
 var current_stamina:float = 100.0

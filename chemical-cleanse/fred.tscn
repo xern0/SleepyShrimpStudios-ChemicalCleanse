@@ -1,7 +1,8 @@
-[gd_scene load_steps=175 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=176 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="Texture2D" uid="uid://bgt1chd7s20ps" path="res://assets/IdleAnimation-Sheet(v2).png" id="2_6nwiu"]
+[ext_resource type="Script" uid="uid://bihad2r1ahccw" path="res://stamina_bar.gd" id="2_dukst"]
 [ext_resource type="Texture2D" uid="uid://bex8uj27rb1t0" path="res://assets/CharacterDesign2-Sheet.png" id="2_nxjit"]
 [ext_resource type="Texture2D" uid="uid://db4x028l70fmq" path="res://assets/roll_anim.png" id="2_rl0ek"]
 [ext_resource type="PackedScene" uid="uid://k1pxhnymcnwl" path="res://hurtbox.tscn" id="4_bwymb"]
@@ -1223,12 +1224,15 @@ motion_mode = 1
 script = ExtResource("1_6nlm4")
 
 [node name="stamina_bar" type="ProgressBar" parent="."]
-offset_left = -145.0
-offset_top = -124.0
-offset_right = 188.0
-offset_bottom = -113.0
+z_index = 4
+offset_left = -123.0
+offset_top = -118.0
+offset_right = 168.0
+offset_bottom = -114.0
+rounded = true
 fill_mode = 1
 show_percentage = false
+script = ExtResource("2_dukst")
 
 [node name="fred_anim" type="AnimatedSprite2D" parent="."]
 clip_children = 2
@@ -1366,6 +1370,7 @@ shape = SubResource("RectangleShape2D_dw68t")
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.75, 1.75)
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox" to="enemyhitbox" method="_on_area_entered"]
