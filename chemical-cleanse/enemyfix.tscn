@@ -118,6 +118,7 @@ position = Vector2(14, 3)
 shape = SubResource("CapsuleShape2D_onc7e")
 
 [node name="hitbox" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("4_7ol1q")]
+unique_name_in_owner = true
 enemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
@@ -131,6 +132,34 @@ enemy = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhurtbox"]
 position = Vector2(15, 3)
 shape = SubResource("CapsuleShape2D_87fxy")
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(14, 3)
+scale = Vector2(2, 2)
+target_position = Vector2(-76, 27)
+collision_mask = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(15, 3)
+scale = Vector2(2, 2)
+target_position = Vector2(55, -80)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(14, 3)
+scale = Vector2(2, 2)
+target_position = Vector2(-57, -75)
+collision_mask = 2
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(15, 4)
+scale = Vector2(2, 2)
+target_position = Vector2(60, 22)
+collision_mask = 2
 
 [connection signal="enemydied" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemydied"]
 [connection signal="enemyhurt" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemyhurt"]
