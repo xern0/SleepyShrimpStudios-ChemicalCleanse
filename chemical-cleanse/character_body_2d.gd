@@ -11,8 +11,14 @@ extends CharacterBody2D
 @onready var hand_sprite: Sprite2D = $fred/HandSprite
 #@onready var enemy: CharacterBody2D = $"."
 @onready var blinking: AnimationPlayer = $blinking
+@export var max_stamina: float = 100.0
+@export var stamina_regen: float = 20.0
+@export var run_cost: float = 50.0
+@export var roll_cost: float = 3000.0
 
-
+var current_stamina:float = 100.0
+@onready var stamina_bar: ProgressBar = $stamina_bar
+var cannot_roll: bool = false
 
 
 
@@ -25,7 +31,7 @@ const PLAYER_TEMP_RUN = preload("uid://bpdhx0w15yeb0")
 const PLAYER_TEMP_ROLL = preload("uid://cjrny7jutk8gr")
 
 var normal_speed := 500
-var roll_speed := 1200
+var roll_speed := 1500
 var run_speed := 900
 var no_speed := 0
 var max_speed := normal_speed
@@ -60,13 +66,19 @@ func _physics_process(_delta):
 		$fred_anim.play("walk_down")
 	elif  velocity.is_zero_approx():
 		$fred_anim.play("idle")
-
 		
-	if Input.is_action_pressed("run"):
-		#fred.set_texture(PLAYER_TEMP_RUN)
+	stamina_bar.value = current_stamina
+		
+	if Input.is_action_pressed("run") and current_stamina > 0:
+		current_stamina -= run_cost * _delta
 		max_speed = run_speed
 	if Input.is_action_just_released("run"):
 		max_speed = normal_speed
+	else:
+		if current_stamina < max_stamina:
+			current_stamina += stamina_regen * _delta
+			
+		current_stamina = clamp(current_stamina, 0, max_stamina)
 		
 	if Input.is_action_just_pressed("attack down"):
 		if $melee_attack_stuff/attack_up.is_playing():
@@ -137,15 +149,23 @@ func _physics_process(_delta):
 		$melee_attack_stuff/attack_right.visible = false
 		$melee_attack_stuff/workingenemyhitbox3/CollisionShape2Dright.disabled = true
 
-
-	if Input.is_action_just_pressed("roll"):
+	if current_stamina < 50.0:
+		cannot_roll = true
+		
+	if current_stamina > 50.0:
+		cannot_roll = false
+		
+	if Input.is_action_just_pressed("roll") and current_stamina > 0:
+		if cannot_roll: return
 		if $fred_Roll.is_playing():
 			return
 		if $Death.is_playing():
 			return
+		current_stamina -= roll_cost * _delta
 		max_speed = roll_speed
 		get_node("timer").start()
 		$fred_Roll.play("Roll")
+		$fred_Roll.flip_h = velocity.x < 0
 		$fred_Roll.visible = true
 		$fred_anim.visible = false
 		hand_sprite.visible = false

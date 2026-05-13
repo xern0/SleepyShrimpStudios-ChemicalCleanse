@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsng30rfn3opq"]
+[gd_scene load_steps=19 format=3 uid="uid://dsng30rfn3opq"]
 
 [ext_resource type="Script" uid="uid://xo1xulw1c8ud" path="res://enemy.gd" id="1_onc7e"]
 [ext_resource type="Texture2D" uid="uid://dsqkce6hpbwgf" path="res://assets/enemy.png" id="2_rq0fl"]
@@ -6,19 +6,102 @@
 [ext_resource type="PackedScene" uid="uid://ccjwqu5fdmb4i" path="res://hitbox.tscn" id="4_7ol1q"]
 [ext_resource type="PackedScene" uid="uid://b5fmha52dmajc" path="res://enemyhurtbox.tscn" id="5_fi2i0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
-size = Vector2(52, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_onc7e"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epg4t"]
-size = Vector2(66, 61)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq0fl"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wujgv"]
-size = Vector2(66.5, 61.5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_87fxy"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ol1q"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi2i0"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weur0"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uork"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy0wh"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wju57"]
+atlas = ExtResource("2_rq0fl")
+region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06uox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onc7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq0fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87fxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ol1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi2i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weur0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uork")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy0wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wju57")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onc7e"]
+radius = 14.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq0fl"]
+radius = 18.0
+height = 78.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87fxy"]
+radius = 18.0
+height = 78.0
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_onc7e")
 
+[node name="enemy_anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, -38)
+scale = Vector2(1.6999998, 1.5725)
+sprite_frames = SubResource("SpriteFrames_06uox")
+autoplay = "default"
+frame = 4
+frame_progress = 0.74478906
+
 [node name="enemy" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.41568628, 0.4862745, 1)
 position = Vector2(17, 14.5)
 scale = Vector2(2.0625, 1.90625)
@@ -26,28 +109,28 @@ texture = ExtResource("2_rq0fl")
 
 [node name="cleansedenemy" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(16.999992, 14.25)
-scale = Vector2(2.0624998, 1.921875)
+position = Vector2(21, -67)
+scale = Vector2(2.3400002, 2.1200001)
 texture = ExtResource("3_87fxy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_3yqyl")
+position = Vector2(14, 3)
+shape = SubResource("CapsuleShape2D_onc7e")
 
 [node name="hitbox" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("4_7ol1q")]
 enemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(17, 14.5)
-shape = SubResource("RectangleShape2D_epg4t")
+position = Vector2(15, 3)
+shape = SubResource("CapsuleShape2D_rq0fl")
 debug_color = Color(0.94513386, 0.183238, 0.38336375, 0.41960785)
 
 [node name="enemyhurtbox" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("5_fi2i0")]
 enemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhurtbox"]
-position = Vector2(16.75, 14.25)
-shape = SubResource("RectangleShape2D_wujgv")
+position = Vector2(15, 3)
+shape = SubResource("CapsuleShape2D_87fxy")
 
 [connection signal="enemydied" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemydied"]
 [connection signal="enemyhurt" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemyhurt"]
