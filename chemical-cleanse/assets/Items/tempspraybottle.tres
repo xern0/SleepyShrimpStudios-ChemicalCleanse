@@ -9,6 +9,6 @@ region = Rect2(20, 16, 26, 46)
 
 [resource]
 script = ExtResource("1_41oe0")
-name = "tempbottlespray"
+name = "Spray Bottle"
 texture = SubResource("AtlasTexture_xu2wo")
 metadata/_custom_type_script = "uid://c4h5j41y6468n"

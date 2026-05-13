@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjv8wxiwn3nkp"]
+[gd_scene load_steps=9 format=3 uid="uid://cjv8wxiwn3nkp"]
 
 [ext_resource type="Script" uid="uid://cfyiepdonltrv" path="res://table.gd" id="1_v5i0k"]
 [ext_resource type="Texture2D" uid="uid://ddxhxvvidic5" path="res://assets/Sprite sheets/Dialouge UI/dialog box medium.png" id="2_kl0hw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6tli2v1woh4v" path="res://cradting_ui.tscn" id="4_vjl2i"]
 [ext_resource type="PackedScene" uid="uid://cmyhel2k7572i" path="res://Nozzle.tscn" id="5_jry6c"]
 [ext_resource type="PackedScene" uid="uid://dn6v1xgf0bbwy" path="res://Water_Bottle.tscn" id="6_bhh2s"]
+[ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_bhh2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjl2i"]
 size = Vector2(139, 39)
@@ -33,6 +34,16 @@ offset_bottom = 839.0
 
 [node name="WaterBottle" parent="." instance=ExtResource("6_bhh2s")]
 position = Vector2(433, 476)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("7_bhh2s")]
+visible = false
+offset_left = -15.0
+offset_top = 73.0
+offset_right = 1129.0
+offset_bottom = 729.0
+scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

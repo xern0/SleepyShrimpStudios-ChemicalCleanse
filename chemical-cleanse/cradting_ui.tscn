@@ -11,6 +11,7 @@ atlas = ExtResource("5_4361o")
 region = Rect2(20, 16, 26, 46)
 
 [node name="CraftingUI" type="PanelContainer"]
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

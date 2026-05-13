@@ -39,6 +39,7 @@ func _on_tree_cell_selected() -> void:
 
 	
 func build_recipe_material_window(selected_recipe: ItemRecipes) -> void:
+	current_recipe = selected_recipe 
 	title_label.text = selected_recipe.recipe_final_name.name
 	item_texture.texture = selected_recipe.recipe_final_name.texture
 	recipe_material_dictionary.clear()
@@ -48,6 +49,7 @@ func build_recipe_material_window(selected_recipe: ItemRecipes) -> void:
 	for recipe_material in selected_recipe.recipe_material_array:
 		var new_slot = inventory_slot.instantiate()
 		grid_container.add_child(new_slot)
+		new_slot.custom_minimum_size = Vector2(64, 64)
 		new_slot.set_item(recipe_material, 1)
 		if recipe_material_dictionary.has(recipe_material.name):
 			recipe_material_dictionary[recipe_material.name] += 1

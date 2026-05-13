@@ -13,7 +13,7 @@ func _on_interact():
 		interactable.is_Interactable = false 
 		print("Gained a water bottle")
 		var inv = preload("res://assets/Items/playerinv.tres")
-		var item = preload("res://Recipes/Nozzle.tres")  
+		var item = preload("res://Recipes/Water_Bottle.tres")  
 		inv.insert(item)
 		queue_free()
 
