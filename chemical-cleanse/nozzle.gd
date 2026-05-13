@@ -13,7 +13,7 @@ func _on_interact():
 		interactable.is_Interactable = false 
 		print("Gained a nozzle")
 		var inv = preload("res://assets/Items/playerinv.tres")
-		var item = preload("res://assets/Items/tempspraybottle.tres")  
+		var item = preload("res://Recipes/Nozzle.tres")
 		inv.insert(item)
 		queue_free()
 

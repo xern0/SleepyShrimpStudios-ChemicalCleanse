@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dn6v1xgf0bbwy"]
 
 [ext_resource type="Script" uid="uid://dhyl67hfawal8" path="res://water_bottle.gd" id="1_q4aj6"]
-[ext_resource type="Texture2D" uid="uid://bm2gfketacu21" path="res://assets/Sprite sheets/buttons/Small Square Buttons.png" id="2_q4aj6"]
+[ext_resource type="Texture2D" uid="uid://b5ur8snkauuow" path="res://assets/Items/craft assets -0003-Sheet.png" id="2_q4aj6"]
 [ext_resource type="PackedScene" uid="uid://dewybrib37atw" path="res://interactable.tscn" id="3_bav4v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehw7s"]
-size = Vector2(44, 131)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pgk8y"]
+radius = 29.068884
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5hxp"]
-radius = 81.154175
+radius = 29.017237
 
 [node name="WaterBottle" type="Area2D"]
 position = Vector2(228, 136)
@@ -16,15 +16,26 @@ collision_layer = 2
 script = ExtResource("1_q4aj6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5.030613, -4.25)
+scale = Vector2(1.1734694, 1.1734694)
 texture = ExtResource("2_q4aj6")
+region_enabled = true
+region_rect = Rect2(92, 0, 58, 49)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2.5)
-shape = SubResource("RectangleShape2D_ehw7s")
+z_index = -1
+position = Vector2(6, -6)
+shape = SubResource("CircleShape2D_pgk8y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(6, -6)
+shape = SubResource("CircleShape2D_pgk8y")
 
 [node name="Interactable" parent="." instance=ExtResource("3_bav4v")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(6, -6)
 shape = SubResource("CircleShape2D_l5hxp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

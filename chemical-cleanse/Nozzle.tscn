@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmyhel2k7572i"]
+[gd_scene load_steps=7 format=3 uid="uid://cmyhel2k7572i"]
 
 [ext_resource type="Script" uid="uid://3d45j1rs1i31" path="res://nozzle.gd" id="1_ocvsn"]
-[ext_resource type="Texture2D" uid="uid://defmglpdsclqy" path="res://assets/emojis-free/emoji style ui/inventory_Light_example.png" id="2_ocvsn"]
+[ext_resource type="Texture2D" uid="uid://b5ur8snkauuow" path="res://assets/Items/craft assets -0003-Sheet.png" id="2_ocvsn"]
 [ext_resource type="PackedScene" uid="uid://dewybrib37atw" path="res://interactable.tscn" id="3_bqqsk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehw7s"]
-size = Vector2(352, 85)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocvsn"]
+atlas = ExtResource("2_ocvsn")
+region = Rect2(0, 0, 150, 100)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6q5v"]
+radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5hxp"]
-radius = 81.154175
+radius = 31.0
 
 [node name="Nozzle" type="Area2D"]
 position = Vector2(228, 136)
@@ -16,15 +20,21 @@ collision_layer = 2
 script = ExtResource("1_ocvsn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ocvsn")
+z_index = -1
+position = Vector2(5.75, -7.2243595)
+scale = Vector2(1.2948718, 1.2948718)
+texture = SubResource("AtlasTexture_ocvsn")
+region_enabled = true
+region_rect = Rect2(55, 0, 39, 49)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 12.5)
-shape = SubResource("RectangleShape2D_ehw7s")
+position = Vector2(6, -9)
+shape = SubResource("CircleShape2D_a6q5v")
 
 [node name="Interactable" parent="." instance=ExtResource("3_bqqsk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(6, -9)
 shape = SubResource("CircleShape2D_l5hxp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
