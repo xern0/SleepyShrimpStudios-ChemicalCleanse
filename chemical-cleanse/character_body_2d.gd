@@ -218,6 +218,7 @@ func _on_hurtbox_died() -> void:
 	$Death.play("scary_death")
 	await get_tree().create_timer(0.45).timeout
 	$sfx/death.play()
+	$playerdeath.emitting = true
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene.call_deferred()
 

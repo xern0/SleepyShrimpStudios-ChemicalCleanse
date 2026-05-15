@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=186 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="AudioStream" uid="uid://cjx28pk4bqmvx" path="res://assets/sfx/rollsfx.wav" id="2_2x2is"]
@@ -1235,6 +1235,9 @@ size = Vector2(201, 201)
 _data = [Vector2(0.017341048, 0.9935992), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_nitmu"]
+colors = PackedColorArray(0.37502435, 5.9260987e-07, 2.8878452e-07, 1, 0.2854845, 0.00024669417, 0.35866413, 1)
+
 [node name="fred" type="CharacterBody2D"]
 position = Vector2(69, 46)
 motion_mode = 1
@@ -1306,7 +1309,7 @@ visible = false
 position = Vector2(24, 38)
 scale = Vector2(2.863, 2.863)
 sprite_frames = SubResource("SpriteFrames_xa66y")
-animation = &"death exclamation point"
+animation = &"Roll"
 
 [node name="Death" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -1417,6 +1420,22 @@ shape = SubResource("RectangleShape2D_dw68t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+
+[node name="playerdeath" type="CPUParticles2D" parent="."]
+position = Vector2(20, 15)
+emitting = false
+amount = 120
+lifetime = 1.91
+speed_scale = 2.65
+explosiveness = 0.27
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_fi2i0")
+color_ramp = SubResource("Gradient_nitmu")
 
 [node name="playerhitfx" type="CPUParticles2D" parent="."]
 position = Vector2(23, 26)
