@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjv8wxiwn3nkp"]
+[gd_scene load_steps=10 format=3 uid="uid://cjv8wxiwn3nkp"]
 
 [ext_resource type="Script" uid="uid://cfyiepdonltrv" path="res://table.gd" id="1_v5i0k"]
-[ext_resource type="Texture2D" uid="uid://ddxhxvvidic5" path="res://assets/Sprite sheets/Dialouge UI/dialog box medium.png" id="2_kl0hw"]
+[ext_resource type="Texture2D" uid="uid://8pujj3b0s7f6" path="res://assets/Items/Craft Table-0001.png" id="2_bhh2s"]
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="3_kl0hw"]
 [ext_resource type="PackedScene" uid="uid://c6tli2v1woh4v" path="res://cradting_ui.tscn" id="4_vjl2i"]
 [ext_resource type="PackedScene" uid="uid://cmyhel2k7572i" path="res://Nozzle.tscn" id="5_jry6c"]
@@ -9,18 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_bhh2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjl2i"]
-size = Vector2(139, 39)
+size = Vector2(199.5, 95.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64sdq"]
+atlas = ExtResource("2_bhh2s")
 
 [node name="Table" type="Area2D"]
 script = ExtResource("1_v5i0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(750, 244)
+position = Vector2(780.25, 215.75)
 shape = SubResource("RectangleShape2D_vjl2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(746, 243)
-texture = ExtResource("2_kl0hw")
+position = Vector2(783, 205.75003)
+scale = Vector2(5.937501, 4.4531236)
+texture = SubResource("AtlasTexture_64sdq")
 
 [node name="fred" parent="." instance=ExtResource("3_kl0hw")]
 
