@@ -1,10 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsng30rfn3opq"]
+[gd_scene load_steps=25 format=3 uid="uid://dsng30rfn3opq"]
 
 [ext_resource type="Script" uid="uid://xo1xulw1c8ud" path="res://enemy.gd" id="1_onc7e"]
 [ext_resource type="Texture2D" uid="uid://dsqkce6hpbwgf" path="res://assets/enemy.png" id="2_rq0fl"]
 [ext_resource type="Texture2D" uid="uid://dc7bwkynaapm8" path="res://assets/enemy_cleansed.png" id="3_87fxy"]
 [ext_resource type="PackedScene" uid="uid://ccjwqu5fdmb4i" path="res://hitbox.tscn" id="4_7ol1q"]
 [ext_resource type="PackedScene" uid="uid://b5fmha52dmajc" path="res://enemyhurtbox.tscn" id="5_fi2i0"]
+[ext_resource type="AudioStream" uid="uid://c8anigb025hb3" path="res://assets/sfx/enemysfxnew.mp3" id="6_7ol1q"]
+[ext_resource type="AudioStream" uid="uid://bsq87hrpp06p" path="res://assets/sfx/cleansedsfxnew.mp3" id="7_7ol1q"]
+[ext_resource type="AudioStream" uid="uid://sn3x3gf4cty1" path="res://assets/sfx/nmehurtsfx.wav" id="8_7ol1q"]
+[ext_resource type="AudioStream" uid="uid://dehhkf3oo3i28" path="res://assets/sfx/mophitsfx.mp3" id="9_fi2i0"]
+[ext_resource type="Texture2D" uid="uid://c1egstuxaw0c2" path="res://assets/cloud.png" id="10_weur0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onc7e"]
 atlas = ExtResource("2_rq0fl")
@@ -89,6 +94,10 @@ height = 78.0
 radius = 18.0
 height = 78.0
 
+[sub_resource type="Curve" id="Curve_fi2i0"]
+_data = [Vector2(0.017341048, 0.9935992), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_onc7e")
 
@@ -131,6 +140,65 @@ enemy = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhurtbox"]
 position = Vector2(15, 3)
 shape = SubResource("CapsuleShape2D_87fxy")
+
+[node name="default" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7ol1q")
+volume_db = -7.069
+
+[node name="clean" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7ol1q")
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7ol1q")
+volume_db = 5.554
+
+[node name="mophit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_fi2i0")
+volume_db = 1.515
+
+[node name="hitfx" type="CPUParticles2D" parent="."]
+position = Vector2(12, -13)
+emitting = false
+amount = 60
+lifetime = 1.08
+one_shot = true
+speed_scale = 4.63
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_fi2i0")
+color = Color(0, 0.9137255, 0.69411767, 0.99215686)
+
+[node name="cleansedfx" type="CPUParticles2D" parent="."]
+position = Vector2(8, -10)
+emitting = false
+amount = 150
+texture = ExtResource("10_weur0")
+lifetime = 2.67
+one_shot = true
+preprocess = 0.74
+speed_scale = 5.62
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+radial_accel_min = -71.13
+radial_accel_max = -32.99
+tangential_accel_min = -57.74
+tangential_accel_max = -39.18
+angle_min = -534.4
+angle_max = -311.8
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_fi2i0")
+color = Color(0, 0.9137255, 0.69411767, 0.18431373)
 
 [connection signal="enemydied" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemydied"]
 [connection signal="enemyhurt" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemyhurt"]

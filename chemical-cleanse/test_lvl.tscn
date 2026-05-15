@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://rnx47ahwjxvk"]
+[gd_scene load_steps=6 format=3 uid="uid://rnx47ahwjxvk"]
 
 [ext_resource type="Script" uid="uid://dm0c40x240oeq" path="res://test_lvl.gd" id="1_5kssm"]
 [ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="1_hpnwk"]
 [ext_resource type="PackedScene" uid="uid://dsng30rfn3opq" path="res://enemyfix.tscn" id="2_hpnwk"]
 [ext_resource type="PackedScene" uid="uid://b6l7mm3a1n1tl" path="res://tile_map.tscn" id="4_5kssm"]
+[ext_resource type="AudioStream" uid="uid://dn4rte3cda0a4" path="res://assets/sfx/bgm1.mp3" id="5_uh4n2"]
 
 [node name="test_lvl" type="Node2D"]
 script = ExtResource("1_5kssm")
@@ -22,3 +23,7 @@ position = Vector2(-92, 28)
 
 [node name="enemy4" parent="." instance=ExtResource("2_hpnwk")]
 position = Vector2(1789, -47)
+
+[node name="bgm1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uh4n2")
+volume_db = 4.039

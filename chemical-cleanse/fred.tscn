@@ -1,15 +1,28 @@
-[gd_scene load_steps=176 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=185 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
+[ext_resource type="AudioStream" uid="uid://cjx28pk4bqmvx" path="res://assets/sfx/rollsfx.wav" id="2_2x2is"]
 [ext_resource type="Texture2D" uid="uid://bgt1chd7s20ps" path="res://assets/IdleAnimation-Sheet(v2).png" id="2_6nwiu"]
 [ext_resource type="Script" uid="uid://bihad2r1ahccw" path="res://stamina_bar.gd" id="2_dukst"]
 [ext_resource type="Texture2D" uid="uid://bex8uj27rb1t0" path="res://assets/CharacterDesign2-Sheet.png" id="2_nxjit"]
 [ext_resource type="Texture2D" uid="uid://db4x028l70fmq" path="res://assets/roll_anim.png" id="2_rl0ek"]
+[ext_resource type="AudioStream" uid="uid://b7yjhgtrg3vue" path="res://assets/sfx/runsfx.wav" id="3_2x2is"]
 [ext_resource type="PackedScene" uid="uid://k1pxhnymcnwl" path="res://hurtbox.tscn" id="4_bwymb"]
+[ext_resource type="AudioStream" uid="uid://c7v8dhjdceeyj" path="res://assets/sfx/mop_swingsfx.wav" id="4_d6bh6"]
 [ext_resource type="PackedScene" uid="uid://db4pb41obbrul" path="res://enemyhitbox.tscn" id="4_dw68t"]
 [ext_resource type="Texture2D" uid="uid://cdudli7k5jhf8" path="res://assets/mop-0001-Sheet.png" id="4_johly"]
 [ext_resource type="PackedScene" uid="uid://bqe0iglop35ik" path="res://Interact_ font.tscn" id="5_6nlm4"]
 [ext_resource type="Texture2D" uid="uid://bqv0k41mke2gr" path="res://assets/death(gorey).png" id="5_6nwiu"]
+[ext_resource type="AudioStream" uid="uid://by7c0rcqrmi20" path="res://assets/sfx/pleyer_hurtsfx.wav" id="5_saqdy"]
+[ext_resource type="AudioStream" uid="uid://dkko86gofpdku" path="res://assets/sfx/deathsfx.mp3" id="6_kh0wi"]
+[ext_resource type="Texture2D" uid="uid://c1egstuxaw0c2" path="res://assets/cloud.png" id="16_w8gxv"]
+
+[sub_resource type="Curve" id="Curve_w8gxv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_w8gxv"]
+colors = PackedColorArray(0.6784314, 0.6784314, 0.6784314, 1, 0.34117648, 0.34117648, 0.34117648, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ceyx"]
 atlas = ExtResource("2_rl0ek")
@@ -1218,10 +1231,43 @@ size = Vector2(77.5, 80.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw68t"]
 size = Vector2(201, 201)
 
+[sub_resource type="Curve" id="Curve_fi2i0"]
+_data = [Vector2(0.017341048, 0.9935992), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="fred" type="CharacterBody2D"]
 position = Vector2(69, 46)
 motion_mode = 1
 script = ExtResource("1_6nlm4")
+
+[node name="walkingfx" type="CPUParticles2D" parent="."]
+position = Vector2(24, 51)
+emitting = false
+amount = 10
+texture = ExtResource("16_w8gxv")
+gravity = Vector2(0, 0)
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_w8gxv")
+color_ramp = SubResource("Gradient_w8gxv")
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="rollsfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("2_2x2is")
+volume_db = 10.098
+
+[node name="runsfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("3_2x2is")
+volume_db = 7.42
+
+[node name="swingsfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("4_d6bh6")
+
+[node name="hurtsfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("5_saqdy")
+
+[node name="death" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("6_kh0wi")
 
 [node name="stamina_bar" type="ProgressBar" parent="."]
 z_index = 4
@@ -1371,6 +1417,23 @@ shape = SubResource("RectangleShape2D_dw68t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+
+[node name="playerhitfx" type="CPUParticles2D" parent="."]
+position = Vector2(23, 26)
+emitting = false
+amount = 60
+lifetime = 1.08
+one_shot = true
+speed_scale = 4.63
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_fi2i0")
+color = Color(0.67457163, 0.0015423017, 0.8319771, 1)
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox" to="enemyhitbox" method="_on_area_entered"]

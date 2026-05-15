@@ -2,7 +2,8 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
+func _ready() -> void:
+	$bgm1.play()
 	#$"heart ui".set_player(player)
 
 
