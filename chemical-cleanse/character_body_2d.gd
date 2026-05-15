@@ -15,10 +15,10 @@ extends CharacterBody2D
 @export var stamina_regen: float = 20.0
 @export var run_cost: float = 50.0
 @export var roll_cost: float = 3000.0
-
 var current_stamina:float = 100.0
 @onready var stamina_bar: ProgressBar = $stamina_bar
 var cannot_roll: bool = false
+
 
 
 
@@ -66,13 +66,20 @@ func _physics_process(_delta):
 		$fred_anim.play("walk_down")
 	elif  velocity.is_zero_approx():
 		$fred_anim.play("idle")
+		$walkingfx.emitting = false
 		
+	if velocity.length() > 0:
+		$walkingfx.emitting = true
 	stamina_bar.value = current_stamina
 		
+		
+	if Input.is_action_just_pressed("run"):
+		$sfx/runsfx.play()
 	if Input.is_action_pressed("run") and current_stamina > 0:
 		current_stamina -= run_cost * _delta
 		max_speed = run_speed
 	if Input.is_action_just_released("run"):
+		$sfx/runsfx.stop()
 		max_speed = normal_speed
 	else:
 		if current_stamina < max_stamina:
@@ -91,6 +98,7 @@ func _physics_process(_delta):
 			return
 		if $fred_Roll.is_playing():
 			return
+		$sfx/swingsfx.play()
 		$melee_attack_stuff/attack_down.visible = true
 		$melee_attack_stuff/attack_down.play("attack_down")
 		$melee_attack_stuff/workingenemyhitbox/CollisionShape2D.disabled = false
@@ -108,6 +116,7 @@ func _physics_process(_delta):
 			return
 		if $fred_Roll.is_playing():
 			return
+		$sfx/swingsfx.play()
 		$melee_attack_stuff/attack_up.visible = true
 		$melee_attack_stuff/attack_up.play("attack_up")
 		$melee_attack_stuff/workingenemyhitbox2/CollisionShape2Dup.disabled = false
@@ -125,6 +134,7 @@ func _physics_process(_delta):
 			return
 		if $fred_Roll.is_playing():
 			return
+		$sfx/swingsfx.play()
 		$melee_attack_stuff/attack_left.visible = true
 		$melee_attack_stuff/attack_left.play("attack_left")
 		$melee_attack_stuff/workingenemyhitbox4/CollisionShape2Dleft.disabled = false
@@ -142,6 +152,7 @@ func _physics_process(_delta):
 			return
 		if $fred_Roll.is_playing():
 			return
+		$sfx/swingsfx.play()
 		$melee_attack_stuff/attack_right.visible = true
 		$melee_attack_stuff/attack_right.play("attack_right")
 		$melee_attack_stuff/workingenemyhitbox3/CollisionShape2Dright.disabled = false
@@ -161,6 +172,7 @@ func _physics_process(_delta):
 			return
 		if $Death.is_playing():
 			return
+		$sfx/rollsfx.play()
 		current_stamina -= roll_cost * _delta
 		max_speed = roll_speed
 		get_node("timer").start()
@@ -191,6 +203,8 @@ func _on_hurtbox_hurt() -> void:
 	#var knockback_direction = (enemy.global_position - global_position).normalized()
 	#enemy.apply_knockback(knockback_direction, 1750.0, 0.1)
 	print("kb")
+	$sfx/hurtsfx.play()
+	$playerhitfx.emitting = true
 	blinking.play("HurtBlink")
 	await get_tree().create_timer(0.75).timeout
 	blinking.play("RESET")
@@ -202,6 +216,8 @@ func _on_hurtbox_died() -> void:
 	$Death.visible = true
 	$hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	$Death.play("scary_death")
+	await get_tree().create_timer(0.45).timeout
+	$sfx/death.play()
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene.call_deferred()
 

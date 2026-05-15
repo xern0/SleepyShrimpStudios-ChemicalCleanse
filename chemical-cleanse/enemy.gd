@@ -10,6 +10,9 @@ var knockback_timer: float = 0.0
 
 var speed=300
 	
+func _ready() -> void:
+	$default.play()
+	
 func _physics_process (_delta):
 	if knockback_timer > 0.0:
 		velocity = knockback
@@ -34,7 +37,11 @@ func _on_enemyhurtbox_enemydied() -> void:
 	$cleansedenemy.visible = true
 	$hitbox.set_deferred("monitoring", false)
 	$CollisionShape2D.set_deferred("disabled", true)
+	$enemyhurtbox/CollisionShape2D.set_deferred("disabled", true)
 	speed = 0
+	$clean.play()
+	$default.stop()
+	$cleansedfx.emitting = true
 	await get_tree().create_timer(1.5).timeout
 	call_deferred("queue_free")
 	
@@ -42,4 +49,8 @@ func _on_enemyhurtbox_enemyhurt() -> void:
 	#stun using reused kb stuff
 	var stun = (global_position - global_position).normalized()
 	enemybody.apply_knockback(stun, 0.0, 0.2)
+	$hurt.play()
+	$mophit.play()
+	$hitfx.emitting = true
+	
 	print("nmestun")

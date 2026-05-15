@@ -8,6 +8,8 @@
 script = ExtResource("1_id7pq")
 
 [node name="health ui fix" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 script = ExtResource("2_7aq2l")
 
 [node name="hearts" type="HBoxContainer" parent="health ui fix"]
