@@ -1236,7 +1236,7 @@ _data = [Vector2(0.017341048, 0.9935992), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_nitmu"]
-colors = PackedColorArray(0.37502435, 5.9260987e-07, 2.8878452e-07, 1, 0.2854845, 0.00024669417, 0.35866413, 1)
+colors = PackedColorArray(0.33270076, 2.2380798e-05, 0.28172916, 1, 0.25047305, 0.000627625, 0.41730702, 1)
 
 [node name="fred" type="CharacterBody2D"]
 position = Vector2(69, 46)
