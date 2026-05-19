@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_interact():
 	if sprite_2d.frame == 0:
-		sprite_2d.frame = 1
+		sprite_2d.frame = false
 		interactable.is_Interactable = false 
 		print("Gained a water bottle")
 		var inv = preload("res://assets/Items/playerinv.tres")
