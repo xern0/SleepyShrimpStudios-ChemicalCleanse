@@ -51,7 +51,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_1n30v")
 
 [node name="TileMap" type="TileMap"]
-scale = Vector2(5, 5)
+scale = Vector2(10, 10)
 tile_set = SubResource("TileSet_35kre")
 format = 2
 layer_0/name = "biuldingsL"

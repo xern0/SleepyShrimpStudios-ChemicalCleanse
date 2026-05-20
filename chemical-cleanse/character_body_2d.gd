@@ -12,13 +12,17 @@ extends CharacterBody2D
 #@onready var enemy: CharacterBody2D = $"."
 @onready var blinking: AnimationPlayer = $blinking
 @export var max_stamina: float = 100.0
-@export var stamina_regen: float = 20.0
-@export var run_cost: float = 50.0
+@export var stamina_regen: float = 25.0
+@export var run_cost: float = 40.0
 @export var roll_cost: float = 3000.0
 var current_stamina:float = 100.0
+
+var stamina_regen_timer:float = 0.0
+const stamina_regen_delay:float = 0.25
+
 @onready var stamina_bar: ProgressBar = $stamina_bar
 var cannot_roll: bool = false
-
+var is_dying: bool = false
 
 
 
@@ -72,17 +76,29 @@ func _physics_process(_delta):
 		$walkingfx.emitting = true
 	stamina_bar.value = current_stamina
 		
-		
+	if current_stamina >= 100.0:
+		$stamina_bar.visible = false
+	if current_stamina < 100.0:
+		$stamina_bar.visible = true
 	if Input.is_action_just_pressed("run"):
 		$sfx/runsfx.play()
+	if stamina_regen_timer > 0:
+		stamina_regen_timer -= _delta
 	if Input.is_action_pressed("run") and current_stamina > 0:
+		if is_dying: return
 		current_stamina -= run_cost * _delta
 		max_speed = run_speed
-	if Input.is_action_just_released("run"):
-		$sfx/runsfx.stop()
-		max_speed = normal_speed
+		cannot_roll = true
+		if current_stamina <= 0.0:
+			stamina_regen_timer = stamina_regen_delay
+			max_speed = normal_speed
+		else:
+			stamina_regen_timer = stamina_regen_delay
 	else:
-		if current_stamina < max_stamina:
+		if Input.is_action_just_released("run") or current_stamina <= 0.0:
+			$sfx/runsfx.stop()
+			max_speed = normal_speed
+		if current_stamina < max_stamina and stamina_regen_timer <= 0.0:
 			current_stamina += stamina_regen * _delta
 			
 		current_stamina = clamp(current_stamina, 0, max_stamina)
@@ -171,6 +187,7 @@ func _physics_process(_delta):
 		if $fred_Roll.is_playing():
 			return
 		if $Death.is_playing():
+			max_speed = no_speed
 			return
 		$sfx/rollsfx.play()
 		current_stamina -= roll_cost * _delta
@@ -211,6 +228,9 @@ func _on_hurtbox_hurt() -> void:
 	
 func _on_hurtbox_died() -> void:
 	print("ded")
+	#if max_speed == roll_speed:
+		#max_speed = no_speed
+	is_dying = true
 	max_speed = no_speed
 	fred_anim.visible = false
 	$Death.visible = true
@@ -218,6 +238,7 @@ func _on_hurtbox_died() -> void:
 	$Death.play("scary_death")
 	await get_tree().create_timer(0.45).timeout
 	$sfx/death.play()
+	$playerdeath.emitting = true
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene.call_deferred()
 

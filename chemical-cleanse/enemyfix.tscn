@@ -143,7 +143,7 @@ shape = SubResource("CapsuleShape2D_87fxy")
 
 [node name="default" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_7ol1q")
-volume_db = -7.069
+volume_db = -11.84
 
 [node name="clean" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_7ol1q")

@@ -1,16 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://k1pxhnymcnwl"]
+[gd_scene load_steps=6 format=3 uid="uid://k1pxhnymcnwl"]
 
 [ext_resource type="Script" uid="uid://lyoxmwo46j2i" path="res://hurtbox.gd" id="1_id7pq"]
 [ext_resource type="Script" uid="uid://3t5cpyng2lrv" path="res://health_ui_fix.gd" id="2_7aq2l"]
+[ext_resource type="Shader" uid="uid://8gu0pddr1u1d" path="res://vignette.gdshader" id="3_41tfq"]
 [ext_resource type="Texture2D" uid="uid://b3refa15cau5a" path="res://assets/Health asset.png" id="3_w84kf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxmog"]
+shader = ExtResource("3_41tfq")
+shader_parameter/alpha = 0.5
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [node name="hurtbox" type="Area2D"]
 script = ExtResource("1_id7pq")
 
 [node name="health ui fix" type="CanvasLayer" parent="."]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 script = ExtResource("2_7aq2l")
+
+[node name="ColorRect" type="ColorRect" parent="health ui fix"]
+material = SubResource("ShaderMaterial_oxmog")
+anchors_preset = -1
+anchor_right = 0.6666667
+anchor_bottom = 0.6666667
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="hearts" type="HBoxContainer" parent="health ui fix"]
 offset_right = 200.0
