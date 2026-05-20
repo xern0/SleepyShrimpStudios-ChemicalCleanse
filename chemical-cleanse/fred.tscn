@@ -1192,6 +1192,7 @@ point_count = 2
 colors = PackedColorArray(0.33270076, 2.2380798e-05, 0.28172916, 1, 0.25047305, 0.000627625, 0.41730702, 1)
 
 [node name="fred" type="CharacterBody2D"]
+z_index = 2
 position = Vector2(69, 46)
 motion_mode = 1
 script = ExtResource("1_6nlm4")

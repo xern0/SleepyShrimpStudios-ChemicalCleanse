@@ -201,7 +201,6 @@ scale_amount_curve = SubResource("Curve_fi2i0")
 color = Color(0, 0.9137255, 0.69411767, 0.18431373)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [connection signal="enemydied" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemydied"]
 [connection signal="enemyhurt" from="enemyhurtbox" to="." method="_on_enemyhurtbox_enemyhurt"]
