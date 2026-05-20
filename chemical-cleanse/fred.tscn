@@ -1063,6 +1063,7 @@ sprite_frames = SubResource("SpriteFrames_xa66y")
 animation = &"Roll"
 
 [node name="fred" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, 3.8146973e-06)
 
 [node name="HandSprite" type="Sprite2D" parent="fred"]
@@ -1089,6 +1090,7 @@ frame = 5
 frame_progress = 1.0
 
 [node name="workingenemyhitbox" type="Area2D" parent="melee_attack_stuff"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="melee_attack_stuff/workingenemyhitbox"]
 position = Vector2(21, 106)
@@ -1154,13 +1156,13 @@ position = Vector2(23.25, 24.75)
 shape = SubResource("RectangleShape2D_6nlm4")
 
 [node name="enemyhitbox" parent="." instance=ExtResource("4_dw68t")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhitbox"]
 position = Vector2(23.5, 24.5)
 shape = SubResource("RectangleShape2D_dw68t")
 
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
+position = Vector2(24, 2)
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="melee_attack_stuff/workingenemyhitbox" to="enemyhitbox" method="_on_area_entered"]
