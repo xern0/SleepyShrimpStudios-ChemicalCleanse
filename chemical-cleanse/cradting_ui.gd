@@ -57,9 +57,15 @@ func build_recipe_material_window(selected_recipe: ItemRecipes) -> void:
 			recipe_material_dictionary[recipe_material.name] = 1
 
 func _on_craft_button_pressed() -> void:
+	# ADD THIS CHECK
+	if current_recipe == null:
+		print("No recipe selected!")
+		return
+	
 	if player_inventory == null:
 		print("No player inventory assigned!")
 		return
+	
 	for material_name in recipe_material_dictionary:
 		var required_amount = recipe_material_dictionary[material_name]
 		var found_amount = 0
@@ -69,6 +75,7 @@ func _on_craft_button_pressed() -> void:
 		if found_amount < required_amount:
 			print("Not enough ", material_name)
 			return
+	
 	for material_name in recipe_material_dictionary:
 		var amount_to_remove = recipe_material_dictionary[material_name]
 		for i in range(player_inventory.slots.size()):
@@ -82,5 +89,6 @@ func _on_craft_button_pressed() -> void:
 				else:
 					slot.amount -= amount_to_remove
 					amount_to_remove = 0
+	
 	player_inventory.insert(current_recipe.recipe_final_name)
 	print("Crafted!", current_recipe.recipe_final_name.name)

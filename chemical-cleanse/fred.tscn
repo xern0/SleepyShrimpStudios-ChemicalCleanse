@@ -1316,6 +1316,7 @@ sprite_frames = SubResource("SpriteFrames_fql0b")
 animation = &"scary_death"
 
 [node name="fred" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, 3.8146973e-06)
 
 [node name="HandSprite" type="Sprite2D" parent="fred"]
@@ -1342,6 +1343,7 @@ frame = 5
 frame_progress = 1.0
 
 [node name="workingenemyhitbox" type="Area2D" parent="melee_attack_stuff"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="melee_attack_stuff/workingenemyhitbox"]
 position = Vector2(21, 106)
@@ -1407,13 +1409,13 @@ position = Vector2(23.25, 24.75)
 shape = SubResource("RectangleShape2D_6nlm4")
 
 [node name="enemyhitbox" parent="." instance=ExtResource("4_dw68t")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhitbox"]
 position = Vector2(23.5, 24.5)
 shape = SubResource("RectangleShape2D_dw68t")
 
 [node name="InteractableComponent" parent="." instance=ExtResource("5_6nlm4")]
+position = Vector2(24, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)

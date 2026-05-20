@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=3 uid="uid://cdlinkc7mgq64"]
+
+[ext_resource type="Texture2D" uid="uid://wn5jjki3cr5q" path="res://assets/Items/Closed Dumpster-Recovered..png" id="1_p0u2l"]
+[ext_resource type="Script" uid="uid://b8wrkanipwajw" path="res://dumpster.gd" id="1_v7t28"]
+[ext_resource type="PackedScene" uid="uid://dn6v1xgf0bbwy" path="res://Water_Bottle.tscn" id="2_y4o1o"]
+[ext_resource type="Texture2D" uid="uid://e0u8v7w4gwrk" path="res://assets/Items/Sprite-0001-Recovered..png" id="3_kqkgi"]
+[ext_resource type="PackedScene" uid="uid://cmyhel2k7572i" path="res://Nozzle.tscn" id="3_vnco7"]
+[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="4_kqkgi"]
+[ext_resource type="PackedScene" uid="uid://dewybrib37atw" path="res://interactable.tscn" id="5_aslgh"]
+
+[sub_resource type="Animation" id="Animation_l8qth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosedDumpsterRecovered_:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite0001Recovered_:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_aslgh"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosedDumpsterRecovered_:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite0001Recovered_:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4o1o"]
+_data = {
+&"RESET": SubResource("Animation_l8qth"),
+&"open": SubResource("Animation_aslgh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6wpt"]
+size = Vector2(62, 106)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8qth"]
+radius = 58.21512
+
+[node name="dumpster" type="Area2D"]
+script = ExtResource("1_v7t28")
+items_to_spawn = Array[PackedScene]([ExtResource("2_y4o1o"), ExtResource("3_vnco7")])
+
+[node name="ClosedDumpsterRecovered_" type="Sprite2D" parent="."]
+position = Vector2(390, 93.281235)
+scale = Vector2(1.4374999, 1.4374999)
+texture = ExtResource("1_p0u2l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y4o1o")
+}
+autoplay = "open"
+
+[node name="Sprite0001Recovered_" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(391, 97)
+scale = Vector2(1.4335938, 1.4335938)
+texture = ExtResource("3_kqkgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(389.875, 106.37694)
+shape = SubResource("RectangleShape2D_s6wpt")
+
+[node name="Interactable" parent="." instance=ExtResource("5_aslgh")]
+position = Vector2(325, 108.281235)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(65.875, 0.095703125)
+shape = SubResource("CircleShape2D_l8qth")
+
+[node name="fred" parent="." instance=ExtResource("4_kqkgi")]
+position = Vector2(268, 311)
+
+[node name="Camera2D" type="Camera2D" parent="fred"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c21t53t2q3w8i" path="res://interact__font.gd" id="1_o1jsg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31bkb"]
+radius = 28.160255
 
 [sub_resource type="LabelSettings" id="LabelSettings_o1jsg"]
 font_size = 30
