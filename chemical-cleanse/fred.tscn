@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://cyxnni35dh6b"]
+[gd_scene load_steps=180 format=3 uid="uid://cyxnni35dh6b"]
 
 [ext_resource type="Script" uid="uid://xsfsqachvkxv" path="res://character_body_2d.gd" id="1_6nlm4"]
 [ext_resource type="AudioStream" uid="uid://cjx28pk4bqmvx" path="res://assets/sfx/rollsfx.wav" id="2_2x2is"]
@@ -26,35 +26,11 @@ colors = PackedColorArray(0.6784314, 0.6784314, 0.6784314, 1, 0.34117648, 0.3411
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkdq5"]
 atlas = ExtResource("11_nitmu")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wu8rp"]
-atlas = ExtResource("11_nitmu")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dxnr"]
 atlas = ExtResource("11_nitmu")
-region = Rect2(0, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smp75"]
-atlas = ExtResource("11_nitmu")
-region = Rect2(0, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ceyx"]
-atlas = ExtResource("11_nitmu")
-region = Rect2(0, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oh6oa"]
-atlas = ExtResource("11_nitmu")
-region = Rect2(0, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yetnb"]
-atlas = ExtResource("11_nitmu")
-region = Rect2(0, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pu14k"]
-atlas = ExtResource("11_nitmu")
-region = Rect2(0, 448, 64, 64)
+region = Rect2(448, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fuvtu"]
 atlas = ExtResource("2_nxjit")
@@ -351,29 +327,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_bkdq5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wu8rp")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_0dxnr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_smp75")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ceyx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oh6oa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yetnb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pu14k")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 12.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1283,7 +1241,7 @@ clip_children = 2
 position = Vector2(24, 38)
 scale = Vector2(2.8632813, 2.8632813)
 sprite_frames = SubResource("SpriteFrames_bkdq5")
-animation = &"walk_down"
+animation = &"idle"
 
 [node name="ColorRect" type="ColorRect" parent="fred_anim"]
 offset_left = -35.623466

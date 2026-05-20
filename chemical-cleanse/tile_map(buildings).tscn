@@ -49,7 +49,7 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_8khul")
 
 [node name="TileMap(buildings)" type="TileMap"]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_35kre")
 format = 2
 layer_0/name = "biuldingsL"
