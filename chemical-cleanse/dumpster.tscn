@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdlinkc7mgq64"]
+[gd_scene load_steps=12 format=3 uid="uid://cdlinkc7mgq64"]
 
 [ext_resource type="Texture2D" uid="uid://wn5jjki3cr5q" path="res://assets/Items/Closed Dumpster-Recovered..png" id="1_p0u2l"]
 [ext_resource type="Script" uid="uid://b8wrkanipwajw" path="res://dumpster.gd" id="1_v7t28"]
 [ext_resource type="PackedScene" uid="uid://dn6v1xgf0bbwy" path="res://Water_Bottle.tscn" id="2_y4o1o"]
 [ext_resource type="Texture2D" uid="uid://e0u8v7w4gwrk" path="res://assets/Items/Sprite-0001-Recovered..png" id="3_kqkgi"]
 [ext_resource type="PackedScene" uid="uid://cmyhel2k7572i" path="res://Nozzle.tscn" id="3_vnco7"]
-[ext_resource type="PackedScene" uid="uid://cyxnni35dh6b" path="res://fred.tscn" id="4_kqkgi"]
 [ext_resource type="PackedScene" uid="uid://dewybrib37atw" path="res://interactable.tscn" id="5_aslgh"]
 
 [sub_resource type="Animation" id="Animation_l8qth"]
@@ -105,8 +104,3 @@ position = Vector2(325, 108.281235)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(65.875, 0.095703125)
 shape = SubResource("CircleShape2D_l8qth")
-
-[node name="fred" parent="." instance=ExtResource("4_kqkgi")]
-position = Vector2(268, 311)
-
-[node name="Camera2D" type="Camera2D" parent="fred"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://bq85y4obpv0x"]
 
 [ext_resource type="Script" uid="uid://cddyr5w7850h6" path="res://world.gd" id="1_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://cv15lqh043voh" path="res://bottle.tscn" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://cwesb0shpcytr" path="res://pausescreen.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://cpx52eiswp2gn" path="res://hand.gd" id="5_036b0"]
-[ext_resource type="PackedScene" uid="uid://bvb0yrfn5utel" path="res://tempspraybottle.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bgmrjxmondmxk" path="res://hotbar.tscn" id="6_ioo17"]
 [ext_resource type="PackedScene" uid="uid://dbu4hbmyjoogq" path="res://inventory/Inv_UI.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://b442egw736vgm" path="res://enemyspawn.tscn" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://b6l7mm3a1n1tl" path="res://tile_map.tscn" id="9_wse8f"]
+[ext_resource type="PackedScene" uid="uid://cdlinkc7mgq64" path="res://dumpster.tscn" id="10_wse8f"]
+[ext_resource type="PackedScene" uid="uid://cjv8wxiwn3nkp" path="res://table.tscn" id="11_ic0uy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ioo17"]
 vertices = PackedVector2Array(814, -312, 814, -972, 1434, -1432, 1434, 2228, -946, -1432, -326, -972, 814, 1608, -946, 2228, -326, 1608, -326, 948, -326, -312, 814, 948)
@@ -18,12 +18,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-956, -1442, 1444, -144
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
 metadata/_edit_vertical_guides_ = [942.0]
-
-[node name="Bottle" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(858, 257)
-
-[node name="Bottle2" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(666, 473)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -61,9 +55,6 @@ script = ExtResource("5_036b0")
 
 [node name="Item_icon" type="Sprite2D" parent="hand"]
 
-[node name="tempspraybottle" parent="." instance=ExtResource("6_dwbse")]
-position = Vector2(495, 173)
-
 [node name="enemyspawn" parent="." instance=ExtResource("9_ioo17")]
 position = Vector2(27, 19)
 
@@ -73,3 +64,9 @@ layer_1/tile_data = PackedInt32Array(-3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0,
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-4, 2)
 navigation_polygon = SubResource("NavigationPolygon_ioo17")
+
+[node name="dumpster" parent="." instance=ExtResource("10_wse8f")]
+position = Vector2(-807, -617)
+
+[node name="Table" parent="." instance=ExtResource("11_ic0uy")]
+position = Vector2(-561, -1239)
