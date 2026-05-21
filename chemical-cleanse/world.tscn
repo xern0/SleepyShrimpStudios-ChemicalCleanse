@@ -106,8 +106,3 @@ shape = SubResource("RectangleShape2D_wse8f")
 position = Vector2(3949, 3809)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_wse8f")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(1781, 229)
-max_distance = 4096.0
-attenuation = 0.01794841

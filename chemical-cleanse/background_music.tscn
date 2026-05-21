@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://p3ihlubydly8"]
+
+[ext_resource type="AudioStream" uid="uid://0xyy6srqgoms" path="res://705535__garuda1982__electric-guitar-loop-for-background-music-fast-action.wav" id="1_4m5bw"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_4m5bw")
+volume_db = 1.06
+autoplay = true
+max_distance = 52090.0
