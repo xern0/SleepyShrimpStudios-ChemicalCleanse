@@ -1375,6 +1375,10 @@ position = Vector2(24, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+limit_left = -2245
+limit_top = -3202
+limit_right = 5760
+limit_bottom = 3838
 
 [node name="playerdeath" type="CPUParticles2D" parent="."]
 position = Vector2(20, 10)
